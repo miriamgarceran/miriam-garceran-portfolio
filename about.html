@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About me — Miriam Garcerán</title>
+    <meta
+      name="description"
+      content="About me de Miriam Garcerán. Dirección creativa, comunicación, RRPP y producción de eventos."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css?v=30" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="index.html">MG</a>
+      <nav class="nav" aria-label="Principal">
+        <a href="index.html#work" data-i18n="nav.work">Work</a>
+        <a href="index.html#contact">Contact</a>
+        <div class="lang" role="group" aria-label="Idioma">
+          <button type="button" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="chip" type="button" id="mood" data-i18n="mood">
+          change the mood
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about" class="about-page">
+        <div class="about-hero">
+          <img
+            src="assets/img/about.jpg?v=30"
+            alt="Retrato editorial de Miriam Garcerán"
+          />
+          <h1 class="about-title" data-i18n="about.title">About me</h1>
+        </div>
+        <div class="about-body" id="about-body"></div>
+        <p class="about-back">
+          <a class="page-link" href="index.html#work" data-i18n="backToWork"
+            >Volver a Work</a
+          >
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Miriam Garcerán</span>
+      <span id="year"></span>
+    </footer>
+
+    <svg class="ripple-defs" aria-hidden="true" focusable="false">
+      <defs>
+        <filter
+          id="water-ripple"
+          x="-25%"
+          y="-25%"
+          width="150%"
+          height="150%"
+          color-interpolation-filters="sRGB"
+        >
+          <feTurbulence
+            id="water-turb"
+            type="fractalNoise"
+            baseFrequency="0.008 0.018"
+            numOctaves="2"
+            seed="3"
+            result="waves"
+          />
+          <feDisplacementMap
+            id="water-disp"
+            in="SourceGraphic"
+            in2="waves"
+            scale="56"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </defs>
+    </svg>
+
+    <script src="js/content.js?v=30"></script>
+    <script src="js/main.js?v=30"></script>
+    <script src="js/cursor.js?v=30"></script>
+  </body>
+</html>
