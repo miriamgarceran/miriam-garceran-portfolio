@@ -57,7 +57,8 @@ anillo: transform-style: preserve-3d; transform: rotateX(ax) rotateY(ay)
 2. Afinar el anillo si hace falta: radio, velocidad de giro, cuántas tarjetas se ven a la vez
    (constantes `CARD_FRAC`, `DRAG_GAIN`, `FADE_AT` en `js/coverflow.js`)
 3. Ajustar intensidad del agua si se quiere más suave o más líquida
-4. Backup online: git ya funciona (v2.50.1). Falta decidir repo y subirlo.
+4. **Subir a GitHub** (decidido: GitHub). El repo local ya está hecho y commiteado.
+   Falta: cuenta de GitHub + autenticación. Ver sección "Subir a GitHub" abajo.
 5. Deploy en Vercel cuando esté más completo
 6. Revisar el anillo en móvil / pantalla pequeña
 
@@ -79,4 +80,29 @@ matarlo y volver a arrancarlo.
 
 ## 💾 Backup
 
-Escritorio: `portfolio-backup-2026-09-18.zip` (111 MB)
+- Escritorio: `portfolio-backup-2026-09-18.zip` (111 MB)
+- **Repo git local ya creado**: rama `main`, primer commit con los 54 ficheros del proyecto
+
+---
+
+## ⬆️ Subir a GitHub (para mañana)
+
+Ya está todo listo del lado local. Lo que falta:
+
+1. Tener cuenta de GitHub (si no la hay, crearla en github.com)
+2. Instalar el CLI de GitHub para no pelearse con contraseñas ni tokens:
+   ```bash
+   brew install gh
+   gh auth login
+   ```
+3. Crear el repo y subirlo de una vez (privado):
+   ```bash
+   cd /Users/miriamgarceran/miriam-garceran-portfolio
+   gh repo create miriam-garceran-portfolio --private --source=. --push
+   ```
+
+Notas:
+- Los vídeos más grandes son de 39 MB y 30 MB, por debajo del límite de 100 MB por
+  fichero de GitHub, así que no hace falta Git LFS.
+- El repo pesa ~111 MB en total, sin problema para GitHub.
+- Los `.zip` de backup están en `.gitignore`, no se suben.
