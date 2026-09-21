@@ -1,5 +1,5 @@
 /* Cover Flow — 3D ring: every card sits on a full 360° circle around one central axis */
-function initCoverflow(stage, cards, { index = 0, onChange } = {}) {
+function initCoverflow(stage, cards, { index = 0, onChange, onActivate } = {}) {
   const STEP_DEG = 360 / cards.length;
   /* Stage-width fractions, matching the proportions of the reference site */
   const CARD_FRAC = 0.2;
@@ -75,7 +75,7 @@ function initCoverflow(stage, cards, { index = 0, onChange } = {}) {
   let lookRaf = 0;
   let settleTimer = 0;
   let selected = Math.max(0, Math.min(cards.length - 1, index));
-  const pointer = { id: null, startX: 0, lastX: 0, lastT: 0 };
+  const pointer = { id: null, startX: 0, lastX: 0, lastT: 0, cardIndex: -1 };
 
   let lookX = 0;
   let lookY = 0;
@@ -115,7 +115,9 @@ function initCoverflow(stage, cards, { index = 0, onChange } = {}) {
       const face = Math.cos(total);
       node.style.zIndex = String(Math.round(50 + 950 * ((face + 1) / 2)));
       /* Fade out once a card turns past edge-on, so its mirrored back never shows */
-      node.style.opacity = Math.max(0, Math.min(1, (face + FADE_AT) / FADE_AT)).toFixed(3);
+      const opacity = Math.max(0, Math.min(1, (face + FADE_AT) / FADE_AT));
+      node.style.opacity = opacity.toFixed(3);
+      node.style.pointerEvents = opacity < 0.08 ? "none" : "auto";
       node.classList.toggle("is-center", i === selected);
       node.setAttribute("aria-selected", String(i === selected));
     });
@@ -188,12 +190,34 @@ function initCoverflow(stage, cards, { index = 0, onChange } = {}) {
     raf = requestAnimationFrame(tick);
   }
 
+  function activate(i) {
+    rotateToIndex(i);
+    onActivate?.(i);
+  }
+
   nodes.forEach((node, i) => {
-    node.addEventListener("click", () => {
-      if (dragged) return;
-      rotateToIndex(i);
+    node.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      activate(i);
     });
   });
+
+  function cardFromPoint(clientX, clientY) {
+    const hit = document.elementFromPoint(clientX, clientY);
+    const card = hit?.closest?.(".coverflow__card");
+    if (!card) return -1;
+    return nodes.indexOf(card);
+  }
+
+  function cardIndexFromEvent(event) {
+    const fromTarget = event.target?.closest?.(".coverflow__card");
+    if (fromTarget) {
+      const i = nodes.indexOf(fromTarget);
+      if (i >= 0) return i;
+    }
+    return cardFromPoint(event.clientX, event.clientY);
+  }
 
   function onPointerDown(event) {
     if (event.pointerType === "mouse" && event.button !== 0) return;
@@ -206,6 +230,7 @@ function initCoverflow(stage, cards, { index = 0, onChange } = {}) {
     pointer.startX = event.clientX;
     pointer.lastX = event.clientX;
     pointer.lastT = performance.now();
+    pointer.cardIndex = cardIndexFromEvent(event);
     stage.setPointerCapture?.(event.pointerId);
     stage.classList.add("is-dragging");
   }
@@ -225,9 +250,22 @@ function initCoverflow(stage, cards, { index = 0, onChange } = {}) {
 
   function onPointerUp(event) {
     if (!dragging || (pointer.id != null && event.pointerId !== pointer.id)) return;
+    const wasDrag = dragged;
+    const i = pointer.cardIndex;
     dragging = false;
+    pointer.cardIndex = -1;
     stage.classList.remove("is-dragging");
-    if (dragged) coast();
+    try {
+      stage.releasePointerCapture?.(event.pointerId);
+    } catch (_) {
+      /* already released */
+    }
+    if (wasDrag) {
+      coast();
+      return;
+    }
+    if (i < 0) return;
+    activate(i);
   }
 
   function onWheel(event) {
@@ -244,10 +282,13 @@ function initCoverflow(stage, cards, { index = 0, onChange } = {}) {
   function onKey(event) {
     if (event.key === "ArrowRight") {
       event.preventDefault();
-      rotateToIndex((selected + 1) % cards.length);
+      activate((selected + 1) % cards.length);
     } else if (event.key === "ArrowLeft") {
       event.preventDefault();
-      rotateToIndex((selected - 1 + cards.length) % cards.length);
+      activate((selected - 1 + cards.length) % cards.length);
+    } else if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      activate(selected);
     }
   }
 

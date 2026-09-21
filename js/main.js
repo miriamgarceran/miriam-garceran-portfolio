@@ -161,12 +161,31 @@ function renderWork(copy) {
 
   const stage = document.createElement("div");
   stage.className = "coverflow";
-  workEl.replaceChildren(stage);
+  const detail = document.createElement("div");
+  detail.className = "work-detail";
+  detail.hidden = true;
+  workEl.replaceChildren(stage, detail);
+
+  function openProject(i) {
+    selectedWorkIndex = i;
+    const project = projectById(copy, cards[i].id);
+    renderWorkDetail(copy, project, detail);
+    detail.hidden = false;
+    if (typeof window.refreshSprayTargets === "function") {
+      window.refreshSprayTargets();
+    }
+    requestAnimationFrame(() => {
+      detail.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
 
   coverflowApi = initCoverflow(stage, cards, {
     index: selectedWorkIndex,
     onChange(i) {
       selectedWorkIndex = i;
+    },
+    onActivate(i) {
+      openProject(i);
     },
   });
 }

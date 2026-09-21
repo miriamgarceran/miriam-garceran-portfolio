@@ -165,7 +165,7 @@ a.wordmark {
   opacity: 0;
   filter: url("#water-ripple");
   -webkit-mask-image: radial-gradient(
-    circle var(--brush, 190px) at var(--lx, -999px) var(--ly, -999px),
+    circle var(--brush, 95px) at var(--lx, -999px) var(--ly, -999px),
     rgba(0, 0, 0, 0.35) 0%,
     #000 16%,
     #000 38%,
@@ -173,7 +173,7 @@ a.wordmark {
     transparent 82%
   );
   mask-image: radial-gradient(
-    circle var(--brush, 190px) at var(--lx, -999px) var(--ly, -999px),
+    circle var(--brush, 95px) at var(--lx, -999px) var(--ly, -999px),
     rgba(0, 0, 0, 0.35) 0%,
     #000 16%,
     #000 38%,
@@ -193,13 +193,13 @@ video.ripple-layer {
 
 .ripple-wrap.is-active .ripple-base {
   -webkit-mask-image: radial-gradient(
-    circle var(--brush, 190px) at var(--lx, -999px) var(--ly, -999px),
+    circle var(--brush, 95px) at var(--lx, -999px) var(--ly, -999px),
     rgba(0, 0, 0, 0.2) 0%,
     rgba(0, 0, 0, 0.45) 32%,
     #000 78%
   );
   mask-image: radial-gradient(
-    circle var(--brush, 190px) at var(--lx, -999px) var(--ly, -999px),
+    circle var(--brush, 95px) at var(--lx, -999px) var(--ly, -999px),
     rgba(0, 0, 0, 0.2) 0%,
     rgba(0, 0, 0, 0.45) 32%,
     #000 78%
@@ -716,6 +716,12 @@ button {
   height: auto;
   display: block;
   background: #000;
+}
+
+/* Native cursor on videos so play/controls stay usable under cursor:none */
+.work-media__item video,
+.work-media__item video * {
+  cursor: auto !important;
 }
 
 .work-media__item--video video,

@@ -109,7 +109,7 @@
   ───────────────────────────────────────────── */
   if (isCoarse) return;
 
-  const BRUSH = 190;
+  const BRUSH = 95;
   let mouseX = -999;
   let mouseY = -999;
   let wraps = [];
@@ -132,6 +132,18 @@
     });
     document.querySelectorAll(".ripple-direct").forEach((el) => {
       el.classList.remove("ripple-direct", "is-active");
+      el.style.removeProperty("--lx");
+      el.style.removeProperty("--ly");
+      el.style.removeProperty("--brush");
+    });
+    /* Videos must never keep a leftover water filter — it covers the frame and
+       toggling it on mouse leave interrupts native playback. */
+    document.querySelectorAll("video").forEach((video) => {
+      video.classList.remove("ripple-direct", "is-active");
+      video.style.removeProperty("filter");
+      video.style.removeProperty("--lx");
+      video.style.removeProperty("--ly");
+      video.style.removeProperty("--brush");
     });
   }
 
@@ -140,10 +152,9 @@
     if (el.closest(".cursor-rock")) return;
 
     const tag = el.tagName;
-    if (tag === "VIDEO") {
-      el.classList.add("ripple-direct");
-      return;
-    }
+    /* Videos stay unfiltered: the SVG displacement covers the whole frame,
+       and turning it off when the cursor leaves interrupts playback. */
+    if (tag === "VIDEO") return;
 
     const wrap = document.createElement("span");
     wrap.className = "ripple-wrap";
@@ -214,7 +225,6 @@
       ".hero-photo img",
       ".about-hero img",
       ".work-media img",
-      ".work-media video",
       ".work-media__pdf span",
       ".work-media__item figcaption",
       ".coverflow__visual img",
