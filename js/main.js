@@ -1,17 +1,12 @@
 const aboutEl = document.getElementById("about-body");
 const workEl = document.getElementById("work-list");
 const yearEl = document.getElementById("year");
-const moodBtn = document.getElementById("mood");
 
 let lang = localStorage.getItem("mg-lang") === "en" ? "en" : "es";
 let selectedWorkIndex = 0;
 let coverflowApi = null;
 
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-
-if (localStorage.getItem("mg-mood") === "dark") {
-  document.documentElement.setAttribute("data-mood", "dark");
-}
 
 function setText(selector, value) {
   document.querySelectorAll(selector).forEach((node) => {
@@ -166,20 +161,12 @@ function renderWork(copy) {
 
   const stage = document.createElement("div");
   stage.className = "coverflow";
-  const detail = document.createElement("div");
-  detail.className = "work-detail";
-
-  workEl.replaceChildren(stage, detail);
+  workEl.replaceChildren(stage);
 
   coverflowApi = initCoverflow(stage, cards, {
     index: selectedWorkIndex,
     onChange(i) {
       selectedWorkIndex = i;
-      const project = projectById(copy, cards[i].id);
-      renderWorkDetail(copy, project, detail);
-      if (typeof window.refreshSprayTargets === "function") {
-        window.refreshSprayTargets();
-      }
     },
   });
 }
@@ -190,11 +177,9 @@ function render() {
   syncLangButtons();
 
   setText('[data-i18n="nav.work"]', copy.nav.work);
-  setText('[data-i18n="mood"]', copy.mood);
   setText('[data-i18n="hero.sub"]', copy.hero.sub);
   setText('[data-i18n="hero.meta"]', copy.hero.meta);
   setText('[data-i18n="work.title"]', copy.work.title);
-  setText('[data-i18n="work.note"]', copy.work.note);
   setText('[data-i18n="about.title"]', copy.aboutTitle || "About me");
   setText('[data-i18n="aboutCta"]', copy.aboutCta || "About me");
   setText('[data-i18n="backToWork"]', copy.backToWork || "Back to Work");
@@ -214,18 +199,5 @@ document.querySelectorAll("[data-lang]").forEach((button) => {
     render();
   });
 });
-
-if (moodBtn) {
-  moodBtn.addEventListener("click", () => {
-    const next = document.documentElement.getAttribute("data-mood") === "dark" ? "light" : "dark";
-    if (next === "dark") {
-      document.documentElement.setAttribute("data-mood", "dark");
-      localStorage.setItem("mg-mood", "dark");
-    } else {
-      document.documentElement.removeAttribute("data-mood");
-      localStorage.setItem("mg-mood", "light");
-    }
-  });
-}
 
 render();

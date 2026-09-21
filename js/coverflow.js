@@ -12,9 +12,8 @@ function initCoverflow(stage, cards, { index = 0, onChange } = {}) {
   const LOOK_LERP = 0.07;
   /* How far past edge-on a card keeps fading before it disappears */
   const FADE_AT = 0.45;
-  /* Cards are not all the same shape, so the row never reads as a uniform strip */
-  const RATIOS = [16 / 9, 1.63, 1.9, 16 / 9, 1.47, 16 / 9, 1.78];
-  const WIDTH_SCALE = [1, 1.17, 1.17, 1, 1.17, 1, 1.1];
+  /* All covers: same size, landscape 16:9 */
+  const CARD_RATIO = 16 / 9;
   const finePointer = window.matchMedia("(pointer: fine)").matches;
 
   stage.innerHTML = "";
@@ -90,8 +89,8 @@ function initCoverflow(stage, cards, { index = 0, onChange } = {}) {
     radius = (cards.length * baseW) / (2 * Math.PI);
     scene.style.perspective = `${Math.round(stageW * PERSPECTIVE_FRAC)}px`;
     nodes.forEach((node, i) => {
-      const w = Math.round(baseW * WIDTH_SCALE[i % WIDTH_SCALE.length]);
-      const h = Math.round(w / RATIOS[i % RATIOS.length]);
+      const w = Math.round(baseW);
+      const h = Math.round(w / CARD_RATIO);
       node.style.width = `${w}px`;
       node.style.height = `${h}px`;
       /* Centre the box on the ring axis first, so rotateY pivots about the card's centre */

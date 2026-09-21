@@ -1,7 +1,6 @@
 const COPY = {
   es: {
     nav: { about: "About", work: "Work" },
-    mood: "change the mood",
     aboutTitle: "About me",
     aboutCta: "About me →",
     backToWork: "← Volver a Work",
@@ -330,7 +329,6 @@ const COPY = {
   },
   en: {
     nav: { about: "About", work: "Work" },
-    mood: "change the mood",
     aboutTitle: "About me",
     aboutCta: "About me →",
     backToWork: "← Back to Work",

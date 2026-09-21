@@ -68,7 +68,7 @@
     );
 
     const HOVER_SEL =
-      "a, button, .work-toggle, .chip, .lang button, .coverflow__card, .page-link, [role='button'], label, select, summary, input, textarea";
+      "a, button, .work-toggle, .lang button, .coverflow__card, .page-link, [role='button'], label, select, summary, input, textarea";
 
     document.addEventListener(
       "mouseover",
