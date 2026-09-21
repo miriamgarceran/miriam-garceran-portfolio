@@ -1,39 +1,29 @@
-# PARA MAÑANA — estado del portfolio al 18/09/2026 (noche)
+# PARA MAÑANA — estado del portfolio al 21/09/2026 (noche)
 
 ## ✅ Hecho hoy
 
-### Cover Flow → anillo 3D de 360° (estilo etienne.studio)
-Se descartó el abanico de ayer. Se analizó el DOM real de `etienne.studio` y se replicó su
-modelo exacto: los proyectos no van en fila, van repartidos en una **circunferencia completa**.
+### Aspecto
+- Fondo **negro** fijo. Quitado el botón «change the mood».
+- Portadas del anillo: **todas horizontales 16:9 y del mismo tamaño**. El giro del anillo no se tocó.
+- Hero sin foto. Quitado el texto «Siete piezas…».
+- Al cargar, **no hay ficha de cliente** bajo el anillo.
 
-Parámetros reales de la referencia, ya aplicados:
+### Clic en una tarjeta
+- Pulsar una tarjeta la trae al frente y **abre debajo** texto + multimedia.
+- Arrastrar sigue girando el anillo y no abre la ficha.
+- Mantra y Dulce Vida abren el texto y el aviso de material pendiente (aún no tienen archivos).
 
-```
-stage:  perspective: 1400px; overflow: hidden; flex centrado
-anillo: transform-style: preserve-3d; transform: rotateX(ax) rotateY(ay)
-ítem i: transform: rotateY(i × 360/n deg) translateZ(R)
-```
+### Cursor / vídeo
+- Radio del efecto de agua: **95px** (antes 190px).
+- Los **vídeos no llevan** el efecto de ondas. Si lo llevaban, al sacar el cursor el navegador pausaba la reproducción y con el cursor encima no se veía el vídeo.
+- El cursor nativo vuelve sobre los controles del vídeo para poder pulsar play.
 
-- **7 proyectos, uno cada 360/7 = 51,43°**, todos al mismo radio del eje central
-- Girar el anillo hace que cada proyecto entre de canto, pase de frente y salga de canto;
-  al completar los 360° vuelve a empezar (giro infinito, sin topes)
-- **El cursor inclina el anillo entero** con `rotateX` / `rotateY`, hasta ±9° en cada eje,
-  con suavizado. (Ojo: NO es un desplazamiento vertical, es una inclinación. Medido en su web.)
-- Arrastrar y scroll giran el anillo; al soltar encaja en el proyecto más cercano
-- Flechas del teclado y clic en una tarjeta → la traen al frente por el camino más corto
-- El panel de detalle de abajo se sincroniza con el proyecto que está de frente
-- Las tarjetas se desvanecen al pasar de canto, y su título se oculta en cuanto dan la espalda,
-  para que nunca se lea texto invertido. Se ven unas 5 a la vez, como en la referencia.
-- Tamaños y proporciones distintos por tarjeta → la fila no parece una tira uniforme.
-  Salen de las listas `RATIOS` y `WIDTH_SCALE` de `js/coverflow.js`. **`content.js` sin tocar.**
+### Cache actual: **`?v=38`**
 
-### Ya estaba
-- Cursor con ondas de agua + mano rock-on
-- `index.html` (Work) + `about.html`
-- Fondo blanco, About = Bratz
-- Blackout Bad Santa + Mamaluna CON INTRO
-
-### Cache actual: **`?v=30`**
+### Git
+- Repo privado: https://github.com/miriamgarceran/miriam-garceran-portfolio
+- Rama local de hoy (aún no subida): `cursor/project-cards-and-video-playback`
+- `main` en GitHub sigue en el commit del fondo negro / sin mood / sin ficha.
 
 ---
 
@@ -41,26 +31,22 @@ anillo: transform-style: preserve-3d; transform: rotateX(ax) rotateY(ay)
 
 | Caso | Texto | Visuales | Portada |
 |------|-------|----------|---------|
-| Tuantojo | ✅ | ✅ | ✅ |
-| Radikal World | ✅ | ✅ | ✅ |
-| Mantra | ✅ | ⏳ | ⏳ tipográfica |
+| Tuantojo | ✅ | ✅ vídeo + fotos + PDF | ✅ |
+| Radikal World | ✅ | ✅ vídeo + fotos | ✅ |
+| Mantra | ✅ | ⏳ pendiente | ⏳ tipográfica |
 | Mamaluna | ✅ | ✅ vídeo | ✅ |
 | Distrito 13 | ✅ | ✅ vídeo | ✅ |
-| Dulce Vida | ✅ | ⏳ | ⏳ tipográfica |
+| Dulce Vida | ✅ | ⏳ pendiente | ⏳ tipográfica |
 | Blackout | ✅ | ✅ vídeo | ✅ |
 
 ---
 
-## ⏳ Pendiente próximas sesiones
+## ⏳ Pendiente
 
-1. **Portadas + material de Mantra y Dulce Vida** (son las dos que salen con título en vez de foto)
-2. Afinar el anillo si hace falta: radio, velocidad de giro, cuántas tarjetas se ven a la vez
-   (constantes `CARD_FRAC`, `DRAG_GAIN`, `FADE_AT` en `js/coverflow.js`)
-3. Ajustar intensidad del agua si se quiere más suave o más líquida
-4. **Subir a GitHub** (decidido: GitHub). El repo local ya está hecho y commiteado.
-   Falta: cuenta de GitHub + autenticación. Ver sección "Subir a GitHub" abajo.
-5. Deploy en Vercel cuando esté más completo
-6. Revisar el anillo en móvil / pantalla pequeña
+1. Portadas + material de **Mantra** y **Dulce Vida**
+2. Subir la rama de hoy a GitHub si Miriam quiere (`git push -u origin cursor/project-cards-and-video-playback`)
+3. Revisar el anillo en móvil
+4. Deploy en Vercel cuando esté más completo
 
 ---
 
@@ -70,39 +56,13 @@ anillo: transform-style: preserve-3d; transform: rotateX(ax) rotateY(ay)
 ruby -run -e httpd /Users/miriamgarceran/miriam-garceran-portfolio -p 4173
 ```
 
-- Work: **http://127.0.0.1:4173/index.html?v=30#work**
-- About: **http://127.0.0.1:4173/about.html?v=30**
+- Work: **http://127.0.0.1:4173/index.html?v=38#work**
+- About: **http://127.0.0.1:4173/about.html?v=38**
 
-Si el servidor devuelve respuestas vacías o `sendfile: Operation not permitted`,
-matarlo y volver a arrancarlo.
+Si el servidor no responde, matarlo y volver a arrancarlo.
 
 ---
 
 ## 💾 Backup
 
-- Escritorio: `portfolio-backup-2026-09-18.zip` (111 MB)
-- **Repo git local ya creado**: rama `main`, primer commit con los 54 ficheros del proyecto
-
----
-
-## ⬆️ Subir a GitHub (para mañana)
-
-Ya está todo listo del lado local. Lo que falta:
-
-1. Tener cuenta de GitHub (si no la hay, crearla en github.com)
-2. Instalar el CLI de GitHub para no pelearse con contraseñas ni tokens:
-   ```bash
-   brew install gh
-   gh auth login
-   ```
-3. Crear el repo y subirlo de una vez (privado):
-   ```bash
-   cd /Users/miriamgarceran/miriam-garceran-portfolio
-   gh repo create miriam-garceran-portfolio --private --source=. --push
-   ```
-
-Notas:
-- Los vídeos más grandes son de 39 MB y 30 MB, por debajo del límite de 100 MB por
-  fichero de GitHub, así que no hace falta Git LFS.
-- El repo pesa ~111 MB en total, sin problema para GitHub.
-- Los `.zip` de backup están en `.gitignore`, no se suben.
+Escritorio: `portfolio-backup-2026-09-21.zip`
