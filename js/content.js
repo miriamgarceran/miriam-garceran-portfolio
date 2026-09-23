@@ -13,6 +13,10 @@ const COPY = {
       note: "Siete piezas. Tuantojo, Radikal, Mamaluna, Distrito 13 y Blackout ya llevan material visual.",
       pending: "Imágenes y piezas de campaña: pendientes de adjuntar.",
       identityPdf: "Ver identidad (PDF)",
+      client: "Cliente",
+      discipline: "Disciplina",
+      year: "Año",
+      next: "Siguiente proyecto",
     },
     about: [
       {
@@ -91,32 +95,6 @@ const COPY = {
             src: "assets/work/tuantojo/spot.mp4",
             label: "Pieza principal · campaña opening",
             featured: true,
-          },
-          {
-            type: "image",
-            src: "assets/work/tuantojo/rrss-01.jpg",
-            label: "Feed Instagram · perfil de marca",
-          },
-          {
-            type: "image",
-            src: "assets/work/tuantojo/rrss-02.jpg",
-            label: "Contenido en calle · prueba social",
-          },
-          {
-            type: "image",
-            src: "assets/work/tuantojo/rrss-03.jpg",
-            label: "Reel · tono de marca",
-          },
-          {
-            type: "image",
-            src: "assets/work/tuantojo/rrss-04.jpg",
-            label: "Lanzamiento web / app",
-          },
-          {
-            type: "pdf",
-            src: "assets/work/tuantojo/id-tuantojo.pdf",
-            cover: "assets/work/tuantojo/id-cover.jpg",
-            label: "Identidad de marca",
           },
         ],
       },
@@ -325,6 +303,31 @@ const COPY = {
           },
         ],
       },
+      {
+        id: "cortijo",
+        layout: "case",
+        client: "El Cortijo",
+        caseClient: "El Cortijo Torreguil",
+        tag: "Estrategia de comunicación",
+        role: "Estrategia, dirección de contenido, guionización y comunicación de marca",
+        discipline: ["Estrategia", "Contenido", "Guion"],
+        year: "",
+        body: [
+          "Desarrollo de la estrategia de comunicación y contenidos de El Cortijo Torreguil junto a una dupla creativa, trabajando de forma transversal sobre sus principales puntos de contacto: redes sociales, web, carta y comunicación de sus celebraciones.",
+          "La estrategia: partí de la necesidad de construir una comunicación coherente para un espacio que no solo funciona como restaurante, sino también como escenario para bodas, comuniones, bautizos y todo tipo de celebraciones. La estrategia buscó trasladar esa amplitud de servicios a una narrativa de marca reconocible, combinando gastronomía, experiencia y celebración.",
+          "El contenido: definición de la estrategia de redes sociales y comunicación, conceptualización y guionización de todos los vídeos publicados en la cuenta, además de la coordinación creativa de los contenidos junto al equipo. El trabajo se extendió también a otros soportes de marca, participando en la creación y planteamiento de la web y la carta para mantener una comunicación coherente en todos los canales.",
+          "La experiencia: apoyo en la conceptualización y montaje de una jornada de puertas abiertas orientada a presentar el espacio y su propuesta gastronómica a potenciales clientes y familias con celebraciones ya reservadas. La acción reunió a proveedores y empresas colaboradoras vinculadas a los eventos, junto a familias interesadas en organizar comuniones, bautizos y bodas, y permitió convertir la experiencia gastronómica y el espacio en una herramienta directa de comunicación y captación.",
+          "Resultado: una estrategia de comunicación 360º que conecta contenido, gastronomía, espacio y experiencia de marca, construyendo una presencia digital coherente y trasladando la propuesta de El Cortijo desde las redes sociales hasta la experiencia física del cliente.",
+        ],
+        media: [
+          {
+            type: "video",
+            src: "assets/work/cortijo/principal.mp4",
+            label: "Pieza principal",
+            span: "full",
+          },
+        ],
+      },
     ],
   },
   en: {
@@ -341,6 +344,10 @@ const COPY = {
       note: "Seven pieces. Tuantojo, Radikal, Mamaluna, Distrito 13 and Blackout already have visuals.",
       pending: "Campaign images and assets: still to be added.",
       identityPdf: "View identity (PDF)",
+      client: "Client",
+      discipline: "Discipline",
+      year: "Year",
+      next: "Next project",
     },
     about: [
       {
@@ -419,32 +426,6 @@ const COPY = {
             src: "assets/work/tuantojo/spot.mp4",
             label: "Hero film · opening campaign",
             featured: true,
-          },
-          {
-            type: "image",
-            src: "assets/work/tuantojo/rrss-01.jpg",
-            label: "Instagram feed · brand profile",
-          },
-          {
-            type: "image",
-            src: "assets/work/tuantojo/rrss-02.jpg",
-            label: "Street content · social proof",
-          },
-          {
-            type: "image",
-            src: "assets/work/tuantojo/rrss-03.jpg",
-            label: "Reel · brand voice",
-          },
-          {
-            type: "image",
-            src: "assets/work/tuantojo/rrss-04.jpg",
-            label: "Web / app launch",
-          },
-          {
-            type: "pdf",
-            src: "assets/work/tuantojo/id-tuantojo.pdf",
-            cover: "assets/work/tuantojo/id-cover.jpg",
-            label: "Brand identity",
           },
         ],
       },
@@ -653,6 +634,31 @@ const COPY = {
           },
         ],
       },
+      {
+        id: "cortijo",
+        layout: "case",
+        client: "El Cortijo",
+        caseClient: "El Cortijo Torreguil",
+        tag: "Communication strategy",
+        role: "Strategy, content direction, scripting and brand communication",
+        discipline: ["Strategy", "Content", "Script"],
+        year: "",
+        body: [
+          "Communication and content strategy for El Cortijo Torreguil, developed with a creative partner and applied across its main touchpoints: social media, website, menu and the communication of its celebrations.",
+          "The strategy: the brief was a coherent voice for a place that works as a restaurant and also as a setting for weddings, communions, christenings and every kind of celebration. The strategy carried that range of services into a recognisable brand narrative, combining gastronomy, experience and celebration.",
+          "The content: social and communications strategy, concept and scripts for every video published on the account, plus creative coordination with the team. The work also reached other brand surfaces — the website and the menu — so the voice stayed consistent across channels.",
+          "The experience: support on the concept and production of an open day to present the space and its food to potential clients and to families who already had a celebration booked. The event brought together suppliers and partner companies linked to events, alongside families planning communions, christenings and weddings, and turned the food and the space into a direct tool for communication and lead generation.",
+          "Result: a 360° communications strategy connecting content, food, space and brand experience — a coherent digital presence that carries El Cortijo’s offer from social media into the client’s physical experience.",
+        ],
+        media: [
+          {
+            type: "video",
+            src: "assets/work/cortijo/principal.mp4",
+            label: "Main piece",
+            span: "full",
+          },
+        ],
+      },
     ],
   },
 };
@@ -661,13 +667,6 @@ const WORK_CARDS = [
   {
     id: "tuantojo",
     cover: "assets/work/covers/tuantojo.jpg",
-    fan: [
-      "assets/work/tuantojo/rrss-01.jpg",
-      "assets/work/tuantojo/rrss-02.jpg",
-      "assets/work/tuantojo/id-cover.jpg",
-      "assets/work/tuantojo/rrss-03.jpg",
-      "assets/work/tuantojo/rrss-04.jpg",
-    ],
   },
   {
     id: "radikal",
@@ -704,5 +703,9 @@ const WORK_CARDS = [
     id: "blackout",
     cover: "assets/work/covers/blackout.jpg",
     fan: ["assets/work/covers/blackout.jpg"],
+  },
+  {
+    id: "cortijo",
+    cover: "",
   },
 ];

@@ -335,6 +335,7 @@ function initCoverflow(stage, cards, { index = 0, onChange, onActivate } = {}) {
 
   return {
     getIndex: () => selected,
+    activate,
     destroy() {
       cancelAnimationFrame(raf);
       cancelAnimationFrame(lookRaf);
