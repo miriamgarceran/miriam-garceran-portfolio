@@ -5,6 +5,7 @@ const yearEl = document.getElementById("year");
 let lang = localStorage.getItem("mg-lang") === "en" ? "en" : "es";
 let selectedWorkIndex = 0;
 let coverflowApi = null;
+let avStripApi = null;
 
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
@@ -31,9 +32,7 @@ function buildMediaItem(item, copy) {
     video.controls = true;
     video.playsInline = true;
     video.preload = "metadata";
-    if (item.featured) {
-      video.setAttribute("poster", "");
-    }
+    video.setAttribute("controlsList", "nodownload");
     figure.append(video);
   } else if (item.type === "pdf") {
     const link = document.createElement("a");
@@ -140,52 +139,259 @@ function projectById(copy, id) {
   return copy.projects.find((project) => project.id === id);
 }
 
-function buildCasePiece(item) {
+function buildCasePiece(item, { hero = false } = {}) {
   const figure = document.createElement("figure");
   figure.className = "case__piece";
   if (item.span === "half") figure.classList.add("case__piece--half");
 
   if (item.type === "video") {
     const video = document.createElement("video");
-    video.src = item.src;
+    /* #t=0.1 forces a visible first frame before play */
+    video.src = `${item.src}#t=0.1`;
     video.controls = true;
     video.playsInline = true;
-    video.preload = "metadata";
+    video.muted = true;
+    video.defaultMuted = true;
+    video.autoplay = true;
+    video.loop = true;
+    video.preload = "auto";
+    video.setAttribute("muted", "");
+    video.setAttribute("autoplay", "");
+    video.setAttribute("loop", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("controlsList", "nodownload");
     video.setAttribute("aria-label", item.label || "");
+    const tryPlay = () => {
+      video.play()?.catch(() => {});
+    };
+    video.addEventListener("loadeddata", tryPlay, { once: true });
+    if (hero) {
+      const markOrientation = () => {
+        if (video.videoHeight > video.videoWidth) {
+          figure.classList.add("case__piece--hero-portrait");
+        } else {
+          figure.classList.remove("case__piece--hero-portrait");
+        }
+      };
+      if (video.readyState >= 1) markOrientation();
+      else video.addEventListener("loadedmetadata", markOrientation, { once: true });
+    }
     figure.append(video);
   } else {
     const img = document.createElement("img");
     img.src = item.src;
     img.alt = item.label || "";
-    img.loading = "lazy";
+    img.loading = hero ? "eager" : "lazy";
+    if (hero) {
+      const markOrientation = () => {
+        if (img.naturalHeight > img.naturalWidth) {
+          figure.classList.add("case__piece--hero-portrait");
+        }
+      };
+      if (img.complete && img.naturalWidth) markOrientation();
+      else img.addEventListener("load", markOrientation, { once: true });
+    }
     figure.append(img);
   }
 
   return figure;
 }
 
+function buildAvStripItem(item) {
+  const figure = document.createElement("figure");
+  figure.className = "av-strip__item";
+
+  if (item.type === "video") {
+    const video = document.createElement("video");
+    video.src = item.src;
+    video.muted = true;
+    video.defaultMuted = true;
+    video.autoplay = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.controls = false;
+    video.preload = "metadata";
+    video.setAttribute("muted", "");
+    video.setAttribute("autoplay", "");
+    video.setAttribute("loop", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("aria-label", item.label || "");
+    const mute = document.createElement("button");
+    mute.type = "button";
+    mute.className = "av-strip__mute is-muted";
+    mute.setAttribute("aria-label", "Activar sonido");
+    mute.setAttribute("aria-pressed", "false");
+    mute.innerHTML =
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3z"/><line x1="16" y1="9" x2="22" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="9" x2="16" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+    figure.append(video, mute);
+  } else {
+    const img = document.createElement("img");
+    img.src = item.src;
+    img.alt = item.label || "";
+    img.draggable = false;
+    img.loading = "eager";
+    figure.append(img);
+  }
+
+  return figure;
+}
+
+function buildAvStrip(items) {
+  const media = (items || []).filter((item) => item.type === "image" || item.type === "video");
+  if (!media.length) return null;
+
+  const root = document.createElement("div");
+  root.className = "av-strip";
+  root.setAttribute("aria-label", "Galería audiovisual");
+
+  const track = document.createElement("div");
+  track.className = "av-strip__track";
+  media.forEach((item) => track.append(buildAvStripItem(item)));
+  root.append(track);
+  return root;
+}
+
+function splitHeroAndRest(media) {
+  const list = (media || []).filter((item) => item.type === "image" || item.type === "video");
+  if (!list.length) return { hero: null, rest: [] };
+
+  /* Prefer explicit featured / full-span main piece; else first item */
+  let heroIndex = list.findIndex((item) => item.featured);
+  if (heroIndex < 0) heroIndex = list.findIndex((item) => item.span === "full");
+  if (heroIndex < 0) heroIndex = 0;
+
+  const hero = list[heroIndex];
+  const rest = list.filter((_, index) => index !== heroIndex);
+  return { hero, rest };
+}
+
 function buildCaseStack(media) {
   const stack = document.createElement("div");
   stack.className = "case__stack";
-  let row = null;
 
-  media.forEach((item) => {
-    const piece = buildCasePiece(item);
-    if (item.span === "half") {
-      if (!row || row.childElementCount >= 2) {
-        row = document.createElement("div");
-        row.className = "case__row";
-        stack.append(row);
-      }
-      row.append(piece);
-      return;
-    }
-    row = null;
-    piece.classList.add("case__piece--full");
+  const { hero, rest } = splitHeroAndRest(media);
+  if (hero) {
+    const piece = buildCasePiece(hero, { hero: true });
+    piece.classList.add("case__piece--full", "case__piece--hero");
     stack.append(piece);
+  }
+
+  const strip = buildAvStrip(rest);
+  if (strip) stack.append(strip);
+  return stack;
+}
+
+function projectDiscipline(project) {
+  if (Array.isArray(project.discipline) && project.discipline.length) return project.discipline;
+  if (project.discipline) return project.discipline;
+  if (project.tag) return project.tag;
+  if (project.role) {
+    return project.role
+      .split(/,|·| y /i)
+      .map((part) => part.trim())
+      .filter(Boolean)
+      .slice(0, 3);
+  }
+  return "";
+}
+
+function ensureSpanishCaps(text) {
+  return String(text).replace(/(^|[.!?…]\s+)([a-záéíóúüñ])/g, (_, lead, letter) => {
+    return lead + letter.toUpperCase();
+  });
+}
+
+function splitEditorialBlock(text) {
+  const match = String(text).match(/^([^:\n]{2,48}):\s+([\s\S]+)$/);
+  if (!match) return null;
+  const title = match[1].trim();
+  const body = ensureSpanishCaps(match[2].trim());
+  if (!body || /[.!?…]/.test(title)) return null;
+  return { title, body };
+}
+
+function metricIcon(kind) {
+  const icons = {
+    plays:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l4 4V6L7 10H4zm11.5 2a3.5 3.5 0 0 0-1.8-3.06v6.12A3.5 3.5 0 0 0 15.5 12zm0-7.5v2.06A6.5 6.5 0 0 1 20 12a6.5 6.5 0 0 1-4.5 6.19V20.2A8.5 8.5 0 0 0 22 12a8.5 8.5 0 0 0-6.5-8.25z"/></svg>',
+    followers:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3zM8 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 2c-2.67 0-8 1.34-8 4v2h10v-2c0-2.66-5.33-4-8-4zm8 0c-.29 0-.62.02-.97.05A5.34 5.34 0 0 1 18 17v2h6v-2c0-2.66-5.33-4-8-4z"/></svg>',
+    interactions:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5A5.5 5.5 0 0 1 7.5 3c1.74 0 3.41.81 4.5 2.09A5.48 5.48 0 0 1 16.5 3 5.5 5.5 0 0 1 22 8.5c0 3.78-3.4 6.86-8.55 11.54z"/></svg>',
+    reels:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 10.5V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3.5l4 4v-11l-4 4z"/></svg>',
+  };
+  const wrap = document.createElement("span");
+  wrap.className = "case__metric-icon";
+  wrap.innerHTML = icons[kind] || icons.plays;
+  return wrap;
+}
+
+function buildProjectMetrics(project) {
+  if (!project.metrics?.length) return null;
+
+  const strip = document.createElement("div");
+  strip.className = "case__metrics";
+
+  project.metrics.forEach((item) => {
+    const cell = document.createElement("div");
+    cell.className = "case__metric";
+
+    cell.append(metricIcon(item.icon || "plays"));
+
+    const value = document.createElement("strong");
+    value.className = "case__metric-value";
+    if (item.accent !== false) value.classList.add("is-accent");
+    value.textContent = item.value;
+
+    const label = document.createElement("span");
+    label.className = "case__metric-label";
+    label.textContent = item.label;
+
+    cell.append(value, label);
+    strip.append(cell);
   });
 
-  return stack;
+  return strip;
+}
+
+function buildProjectCopy(project) {
+  const block = document.createElement("div");
+  block.className = "case__copy";
+
+  if (project.role) {
+    const role = document.createElement("p");
+    role.className = "role";
+    role.textContent = project.role;
+    block.append(role);
+  }
+
+  const cols = document.createElement("div");
+  cols.className = "case__cols";
+
+  (project.body || []).forEach((paragraph, index) => {
+    const parts = splitEditorialBlock(paragraph);
+
+    if (parts) {
+      const section = document.createElement("section");
+      section.className = "case__section";
+      const heading = document.createElement("h4");
+      heading.textContent = parts.title;
+      const p = document.createElement("p");
+      p.textContent = parts.body;
+      section.append(heading, p);
+      cols.append(section);
+      return;
+    }
+
+    const p = document.createElement("p");
+    if (index === 0) p.className = "case__intro";
+    p.textContent = ensureSpanishCaps(paragraph);
+    cols.append(p);
+  });
+
+  block.append(cols);
+  return block;
 }
 
 function renderCase(copy, project, panel, { onNext } = {}) {
@@ -205,7 +411,7 @@ function renderCase(copy, project, panel, { onNext } = {}) {
 
   const entries = [
     [copy.work.client, project.caseClient || project.client],
-    [copy.work.discipline, project.discipline],
+    [copy.work.discipline, projectDiscipline(project)],
     [copy.work.year, project.year],
   ];
 
@@ -236,72 +442,23 @@ function renderCase(copy, project, panel, { onNext } = {}) {
   item.append(top);
   if (project.media?.length) item.append(buildCaseStack(project.media));
   item.append(buildProjectCopy(project));
+  const metrics = buildProjectMetrics(project);
+  if (metrics) item.append(metrics);
   item.append(next);
   panel.append(item);
-}
 
-function buildProjectCopy(project) {
-  const block = document.createElement("div");
-  block.className = "case__copy";
-
-  if (project.role) {
-    const role = document.createElement("p");
-    role.className = "role";
-    role.textContent = project.role;
-    block.append(role);
+  avStripApi?.destroy();
+  avStripApi = null;
+  const strip = item.querySelector(".av-strip");
+  if (strip && typeof window.initAvStrip === "function") {
+    avStripApi = window.initAvStrip(strip);
   }
-
-  (project.body || []).forEach((paragraph) => {
-    const p = document.createElement("p");
-    p.textContent = paragraph;
-    block.append(p);
-  });
-
-  return block;
 }
 
 function renderWorkDetail(copy, project, panel, options) {
   panel.replaceChildren();
   if (!project) return;
-
-  if (project.layout === "case") {
-    renderCase(copy, project, panel, options);
-    return;
-  }
-
-  const item = document.createElement("article");
-  item.className = "work-item is-open";
-  if (project.id) item.dataset.project = project.id;
-
-  const heading = document.createElement("div");
-  heading.className = "work-toggle";
-  const title = document.createElement("h3");
-  title.textContent = project.client;
-  const tag = document.createElement("small");
-  tag.textContent = project.tag;
-  heading.append(title, tag);
-
-  const body = document.createElement("div");
-  body.className = "work-panel";
-
-  if (project.media?.length) {
-    const featured = buildMedia(project.media, copy, { featuredOnly: true });
-    if (featured) body.append(featured);
-    const supporting = buildMedia(project.media, copy, { supportingOnly: true });
-    if (supporting) body.append(supporting);
-  }
-
-  body.append(buildProjectCopy(project));
-
-  if (!project.media?.length) {
-    const pending = document.createElement("p");
-    pending.className = "pending";
-    pending.textContent = copy.work.pending;
-    body.append(pending);
-  }
-
-  item.append(heading, body);
-  panel.append(item);
+  renderCase(copy, project, panel, options);
 }
 
 function renderWork(copy) {
