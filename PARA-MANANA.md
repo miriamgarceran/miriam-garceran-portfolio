@@ -1,29 +1,48 @@
-# PARA MAÑANA — estado del portfolio al 21/09/2026 (noche)
+# PARA MAÑANA — estado del portfolio al 28/09/2026 (noche)
 
-## ✅ Hecho hoy
+## ✅ Guardado
 
-### Aspecto
-- Fondo **negro** fijo. Quitado el botón «change the mood».
-- Portadas del anillo: **todas horizontales 16:9 y del mismo tamaño**. El giro del anillo no se tocó.
-- Hero sin foto. Quitado el texto «Siete piezas…».
-- Al cargar, **no hay ficha de cliente** bajo el anillo.
+- Rama: `cursor/project-cards-and-video-playback`
+- Último commit: `b4d3f76` — Unify every case with Cortijo-style AV…
+- Subido a GitHub: sí (rama al día con `origin`)
+- Repo: https://github.com/miriamgarceran/miriam-garceran-portfolio
 
-### Clic en una tarjeta
-- Pulsar una tarjeta la trae al frente y **abre debajo** texto + multimedia.
-- Arrastrar sigue girando el anillo y no abre la ficha.
-- Mantra y Dulce Vida abren el texto y el aviso de material pendiente (aún no tienen archivos).
+### Cache actual: **`?v=69`**
 
-### Cursor / vídeo
-- Radio del efecto de agua: **95px** (antes 190px).
-- Los **vídeos no llevan** el efecto de ondas. Si lo llevaban, al sacar el cursor el navegador pausaba la reproducción y con el cursor encima no se veía el vídeo.
-- El cursor nativo vuelve sobre los controles del vídeo para poder pulsar play.
+---
 
-### Cache actual: **`?v=38`**
+## ✅ Hecho hoy (28/09)
 
-### Git
-- Repo privado: https://github.com/miriamgarceran/miriam-garceran-portfolio
-- Rama local de hoy (aún no subida): `cursor/project-cards-and-video-playback`
-- `main` en GitHub sigue en el commit del fondo negro / sin mood / sin ficha.
+### Estructura de casos (todos igual que Cortijo)
+- Cabecera (lead + cliente / disciplina / año)
+- **Pieza principal** a ancho completo (landscape full-bleed)
+- **Tira audiovisual infinita** con el resto de archivos (fotos/vídeos)
+- Textos descriptivos abajo en dos columnas + métricas en coral (si las hay)
+
+### Tira (marquee)
+- Bucle continuo sin salto al “volver al principio”
+- Clona el set las veces que haga falta para cubrir el viewport
+- Vídeos de la tira: muteados por defecto + botón de sonido
+- Archivo: `js/marquee.js`
+
+### Tipografía descriptiva
+- Mayúsculas/minúsculas normales (sin ALL CAPS forzadas)
+- Stack tipo Etienne: Neue Haas Grotesk / Helvetica Neue
+- Métricas: mismos números, estructura y coral `#e8a88a`
+
+### Cortijo
+- Hero: `principal.mp4`
+- Tira: `video.mp4`, `reel.mp4`, `carrusel.mp4` (H.264)
+- Portada: `assets/work/covers/cortijo.jpg`
+- Métricas 90 días en coral
+
+### Piezas principales
+- Landscape (Mamaluna, Tuantojo, Distrito, Blackout, Cortijo…): full-bleed como Cortijo
+- Portrait (Radikal aftermovie): centrado, altura limitada (no torre negra)
+
+### Servidor local con Range (vídeos)
+- Preferir: `python3 serve.py` (puerto **4173**)
+- El `ruby -run -e httpd` a veces rompe el seek de los MP4
 
 ---
 
@@ -31,38 +50,47 @@
 
 | Caso | Texto | Visuales | Portada |
 |------|-------|----------|---------|
-| Tuantojo | ✅ | ✅ vídeo + fotos + PDF | ✅ |
-| Radikal World | ✅ | ✅ vídeo + fotos | ✅ |
+| Tuantojo | ✅ | ✅ spot full-bleed | ✅ |
+| Radikal World | ✅ | ✅ aftermovie + tira fotos | ✅ |
 | Mantra | ✅ | ⏳ pendiente | ⏳ tipográfica |
-| Mamaluna | ✅ | ✅ vídeo | ✅ |
-| Distrito 13 | ✅ | ✅ vídeo | ✅ |
+| Mamaluna | ✅ | ✅ con-intro full-bleed | ✅ |
+| Distrito 13 | ✅ | ✅ scroll Instagram | ✅ |
 | Dulce Vida | ✅ | ⏳ pendiente | ⏳ tipográfica |
-| Blackout | ✅ | ✅ vídeo | ✅ |
+| Blackout | ✅ | ✅ Bad Santa full-bleed | ✅ |
+| El Cortijo | ✅ | ✅ principal + tira 3 vídeos + métricas | ✅ |
 
 ---
 
 ## ⏳ Pendiente
 
 1. Portadas + material de **Mantra** y **Dulce Vida**
-2. Subir la rama de hoy a GitHub si Miriam quiere (`git push -u origin cursor/project-cards-and-video-playback`)
-3. Revisar el anillo en móvil
+2. Revisar anillo / casos en **móvil**
+3. Merge a `main` cuando Miriam lo diga
 4. Deploy en Vercel cuando esté más completo
+5. (Opcional) aftermovie landscape de Radikal si aparece una versión horizontal
 
 ---
 
 ## 🖥 Arrancar mañana
 
 ```bash
-ruby -run -e httpd /Users/miriamgarceran/miriam-garceran-portfolio -p 4173
+cd /Users/miriamgarceran/miriam-garceran-portfolio
+python3 serve.py
 ```
 
-- Work: **http://127.0.0.1:4173/index.html?v=38#work**
-- About: **http://127.0.0.1:4173/about.html?v=38**
+- Work: **http://127.0.0.1:4173/index.html?v=69#work**
+- About: **http://127.0.0.1:4173/about.html?v=69**
 
-Si el servidor no responde, matarlo y volver a arrancarlo.
+Si el puerto está ocupado:
+
+```bash
+lsof -tiTCP:4173 -sTCP:LISTEN | xargs kill
+python3 serve.py
+```
 
 ---
 
-## 💾 Backup
+## 💬 Al reabrir el chat
 
-Escritorio: `portfolio-backup-2026-09-21.zip`
+Decir algo como: *“seguimos con el portfolio, lee PARA-MANANA.md”*  
+o abrir la rama `cursor/project-cards-and-video-playback`.
