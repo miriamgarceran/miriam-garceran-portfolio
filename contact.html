@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Miriam Garcerán</title>
+    <meta
+      name="description"
+      content="Contacta con Miriam Garcerán. Dirección creativa, comunicación, RRPP y producción de eventos."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css?v=82" />
+    <style>
+      /* ── Contact page ── */
+      .contact-page {
+        min-height: 100vh;
+        padding: clamp(80px, 10vh, 120px) var(--gutter) clamp(48px, 8vh, 96px);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        align-items: center;
+        position: relative;
+        overflow: visible;
+      }
+
+      .contact-page__info {
+        z-index: 2;
+        position: relative;
+      }
+
+      .contact-page__label {
+        font-family: var(--bootzy);
+        font-size: clamp(11px, 1vw, 14px);
+        letter-spacing: 0.22em;
+        line-height: 2;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 clamp(24px, 3vw, 40px);
+      }
+
+      .contact-page__name {
+        font-family: var(--bootzy);
+        font-size: clamp(42px, 7vw, 100px);
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+        margin: 0 0 clamp(28px, 4vw, 56px);
+        color: var(--text);
+      }
+
+      .contact-page__items {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(18px, 2.2vw, 28px);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .contact-page__item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .contact-page__item-label {
+        font-family: var(--bootzy);
+        font-size: clamp(9px, 0.8vw, 11px);
+        letter-spacing: 0.24em;
+        line-height: 1.8;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .contact-page__item-value {
+        font-family: var(--bootzy);
+        font-size: clamp(15px, 1.8vw, 24px);
+        letter-spacing: 0.01em;
+        line-height: 1.5;
+        color: var(--text);
+        text-decoration: none;
+        border-bottom: 1.5px solid transparent;
+        transition: border-color 0.2s ease, opacity 0.2s ease;
+        display: inline-block;
+        padding-bottom: 1px;
+      }
+
+      a.contact-page__item-value:hover {
+        border-color: currentColor;
+        opacity: 0.75;
+      }
+
+      /* ── Photo stack ── */
+      .contact-page__photo-wrap {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        padding-right: 0;
+      }
+
+      /* Stack wrapper */
+      .contact-page__stack {
+        position: relative;
+        width: clamp(240px, 38vw, 480px);
+      }
+
+      /* Chincheta / pin SVG */
+      .contact-page__pin {
+        position: absolute;
+        left: calc(50% - 22px);
+        top: 36%;
+        transform: translateY(-50%);
+        z-index: 10;
+        width: 44px;
+        height: 44px;
+        pointer-events: none;
+        filter: drop-shadow(0 4px 10px rgba(0,0,0,0.65));
+        display: block;
+      }
+
+      /* First photo — landscape, no extra frame (the JPG is already a polaroid-style shot) */
+      .contact-page__photo-1 {
+        position: relative;
+        z-index: 4;
+        transform: rotate(-10deg);
+        transform-origin: center bottom;
+        filter: drop-shadow(0 16px 40px rgba(0,0,0,0.7));
+        width: 100%;
+      }
+
+      .contact-page__photo-1 img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      /* Second photo — portrait Polaroid (the image itself has the white border) */
+      .contact-page__photo-2 {
+        position: relative;
+        z-index: 3;
+        transform: rotate(7deg);
+        transform-origin: center top;
+        filter: drop-shadow(0 12px 32px rgba(0,0,0,0.6));
+        width: 55%;
+        margin: -60px auto 0;
+      }
+
+      .contact-page__photo-2 img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      /* ── Back link ── */
+      .contact-back {
+        position: fixed;
+        top: clamp(14px, 2vh, 24px);
+        left: calc(var(--gutter) + 42px);
+        z-index: 100;
+        font-family: var(--bootzy);
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text);
+        text-decoration: none;
+        opacity: 0.6;
+        transition: opacity 0.2s;
+      }
+
+      .contact-back:hover {
+        opacity: 1;
+      }
+
+      /* ── Mobile ── */
+      @media (max-width: 720px) {
+        .contact-page {
+          grid-template-columns: 1fr;
+          padding-top: clamp(80px, 12vh, 120px);
+        }
+
+        .contact-page__photo-wrap {
+          order: -1;
+          align-items: center;
+        }
+
+        .contact-page__stack {
+          right: 0;
+          width: clamp(220px, 72vw, 360px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="contact-back" href="index.html">work →</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="index.html">MG</a>
+      <nav class="nav" aria-label="Principal">
+        <a href="index.html#work" data-i18n="nav.work">Work</a>
+        <a href="contact.html" aria-current="page" data-i18n="nav.contact">Contact</a>
+        <div class="lang" role="group" aria-label="Idioma">
+          <button type="button" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="contact-page" aria-label="Datos de contacto">
+
+        <!-- LEFT: info -->
+        <div class="contact-page__info">
+          <p class="contact-page__label" data-i18n="contact.label">Dirección creativa · eventos · comunicación</p>
+
+          <h1 class="contact-page__name">Miriam<br>Garcerán<br>Pulido</h1>
+
+          <ul class="contact-page__items">
+            <li class="contact-page__item">
+              <span class="contact-page__item-label" data-i18n="contact.phone">Teléfono</span>
+              <a class="contact-page__item-value" href="tel:+34640078859">640 078 859</a>
+            </li>
+            <li class="contact-page__item">
+              <span class="contact-page__item-label" data-i18n="contact.email">Email</span>
+              <a class="contact-page__item-value" href="mailto:miriamgarceran@estudiotreintayocho.com">miriamgarceran@estudiotreintayocho.com</a>
+            </li>
+            <li class="contact-page__item">
+              <a class="contact-page__item-value" href="mailto:miriamgarceran@gmail.com">miriamgarceran@gmail.com</a>
+            </li>
+            <li class="contact-page__item">
+              <span class="contact-page__item-label">LinkedIn</span>
+              <a class="contact-page__item-value"
+                href="https://www.linkedin.com/in/miriam-garcer%C3%A1n-pulido-7a801b141"
+                target="_blank"
+                rel="noopener noreferrer">miriam-garcerán-pulido</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- RIGHT: photo stack + pin -->
+        <div class="contact-page__photo-wrap" aria-hidden="true">
+          <div class="contact-page__stack">
+
+            <!-- Photo 1: landscape (Office Session) -->
+            <figure class="contact-page__photo-1">
+              <img
+                src="assets/img/contact.jpg"
+                alt="Office Session — Miriam Garcerán"
+                loading="lazy"
+              />
+            </figure>
+
+            <!-- Silver pin between photos -->
+            <svg class="contact-page__pin" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Pin body (circle) -->
+              <circle cx="14" cy="12" r="9" fill="url(#pin-grad)" stroke="#c0c0c0" stroke-width="0.8"/>
+              <!-- Highlight -->
+              <ellipse cx="11" cy="9" rx="3" ry="2" fill="rgba(255,255,255,0.45)" transform="rotate(-20 11 9)"/>
+              <!-- Needle -->
+              <line x1="14" y1="21" x2="14" y2="28" stroke="#a8a8a8" stroke-width="1.5" stroke-linecap="round"/>
+              <defs>
+                <radialGradient id="pin-grad" cx="40%" cy="35%" r="65%">
+                  <stop offset="0%" stop-color="#e8e8e8"/>
+                  <stop offset="60%" stop-color="#b0b0b0"/>
+                  <stop offset="100%" stop-color="#888"/>
+                </radialGradient>
+              </defs>
+            </svg>
+
+            <!-- Photo 2: portrait Polaroid (already has white border in the image) -->
+            <figure class="contact-page__photo-2">
+              <img
+                src="assets/img/contact2.jpg"
+                alt="Sesión oficina — Miriam Garcerán"
+                loading="lazy"
+              />
+            </figure>
+
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Miriam Garcerán</span>
+      <span id="year"></span>
+    </footer>
+
+    <svg class="ripple-defs" aria-hidden="true" focusable="false">
+      <defs>
+        <filter
+          id="water-ripple"
+          x="-25%"
+          y="-25%"
+          width="150%"
+          height="150%"
+          color-interpolation-filters="sRGB"
+        >
+          <feTurbulence
+            id="water-turb"
+            type="fractalNoise"
+            baseFrequency="0.008 0.018"
+            numOctaves="2"
+            seed="3"
+            result="waves"
+          />
+          <feDisplacementMap
+            id="water-disp"
+            in="SourceGraphic"
+            in2="waves"
+            scale="56"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </defs>
+    </svg>
+
+    <script src="js/content.js?v=82"></script>
+    <script src="js/main.js?v=82"></script>
+    <script src="js/cursor.js?v=82"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

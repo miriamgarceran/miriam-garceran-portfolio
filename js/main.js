@@ -167,7 +167,12 @@ function buildCasePiece(item, { hero = false } = {}) {
     video.addEventListener("loadeddata", tryPlay, { once: true });
     if (hero) {
       const markOrientation = () => {
-        if (video.videoHeight > video.videoWidth) {
+        if (item.orientation === "landscape") {
+          figure.classList.add("case__piece--hero-landscape");
+          figure.classList.remove("case__piece--hero-portrait");
+          return;
+        }
+        if (item.orientation === "portrait" || video.videoHeight > video.videoWidth) {
           figure.classList.add("case__piece--hero-portrait");
         } else {
           figure.classList.remove("case__piece--hero-portrait");
@@ -295,6 +300,15 @@ function projectDiscipline(project) {
   return "";
 }
 
+function instagramHandle(url) {
+  try {
+    const handle = new URL(url).pathname.replace(/^\/+|\/+$/g, "");
+    return handle ? `@${handle}` : "Instagram";
+  } catch (_) {
+    return "Instagram";
+  }
+}
+
 function ensureSpanishCaps(text) {
   return String(text).replace(/(^|[.!?…]\s+)([a-záéíóúüñ])/g, (_, lead, letter) => {
     return lead + letter.toUpperCase();
@@ -320,6 +334,18 @@ function metricIcon(kind) {
       '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5A5.5 5.5 0 0 1 7.5 3c1.74 0 3.41.81 4.5 2.09A5.48 5.48 0 0 1 16.5 3 5.5 5.5 0 0 1 22 8.5c0 3.78-3.4 6.86-8.55 11.54z"/></svg>',
     reels:
       '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 10.5V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3.5l4 4v-11l-4 4z"/></svg>',
+    users:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3zM8 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 2c-2.67 0-8 1.34-8 4v2h10v-2c0-2.66-5.33-4-8-4zm8 0c-.29 0-.62.02-.97.05A5.34 5.34 0 0 1 18 17v2h6v-2c0-2.66-5.33-4-8-4z"/></svg>',
+    orders:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 2 2 2 2 0 0 0-2-2zm10 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2zM7.2 14h9.45a2 2 0 0 0 1.94-1.5L21 5H5.2L4.3 2H1v2h2l3.6 7.59-1.35 2.44A2 2 0 0 0 7 16h12v-2H7.4z"/></svg>',
+    guests:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3zM8 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 2c-2.67 0-8 1.34-8 4v2h10v-2c0-2.66-5.33-4-8-4zm8 0c-.29 0-.62.02-.97.05A5.34 5.34 0 0 1 18 17v2h6v-2c0-2.66-5.33-4-8-4z"/></svg>',
+    engagement:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5A5.5 5.5 0 0 1 7.5 3c1.74 0 3.41.81 4.5 2.09A5.48 5.48 0 0 1 16.5 3 5.5 5.5 0 0 1 22 8.5c0 3.78-3.4 6.86-8.55 11.54z"/></svg>',
+    growth:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>',
+    campaigns:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2h2l5 4V7L5 11H3zm13.5 1a3.5 3.5 0 0 0-1.8-3.06v6.12A3.5 3.5 0 0 0 16.5 12zM14 5.08v2.06A6.5 6.5 0 0 1 18.5 12 6.5 6.5 0 0 1 14 16.86v2.06A8.5 8.5 0 0 0 20.5 12 8.5 8.5 0 0 0 14 5.08z"/></svg>',
   };
   const wrap = document.createElement("span");
   wrap.className = "case__metric-icon";
@@ -332,16 +358,16 @@ function buildProjectMetrics(project) {
 
   const strip = document.createElement("div");
   strip.className = "case__metrics";
+  strip.dataset.count = String(Math.min(4, project.metrics.length));
 
-  project.metrics.forEach((item) => {
+  project.metrics.slice(0, 4).forEach((item) => {
     const cell = document.createElement("div");
     cell.className = "case__metric";
 
     cell.append(metricIcon(item.icon || "plays"));
 
     const value = document.createElement("strong");
-    value.className = "case__metric-value";
-    if (item.accent !== false) value.classList.add("is-accent");
+    value.className = "case__metric-value is-accent";
     value.textContent = item.value;
 
     const label = document.createElement("span");
@@ -430,6 +456,21 @@ function renderCase(copy, project, panel, { onNext } = {}) {
     meta.append(name, strong);
     facts.append(meta);
   });
+
+  if (project.instagram) {
+    const igMeta = document.createElement("div");
+    igMeta.className = "case__meta case__meta--instagram";
+    const label = document.createElement("span");
+    label.textContent = copy.work.instagram || "Instagram";
+    const link = document.createElement("a");
+    link.className = "case__instagram";
+    link.href = project.instagram;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = instagramHandle(project.instagram);
+    igMeta.append(label, link);
+    facts.append(igMeta);
+  }
 
   top.append(lead, facts);
 
@@ -520,8 +561,8 @@ function render() {
   setText('[data-i18n="hero.sub"]', copy.hero.sub);
   setText('[data-i18n="hero.meta"]', copy.hero.meta);
   setText('[data-i18n="work.title"]', copy.work.title);
-  setText('[data-i18n="about.title"]', copy.aboutTitle || "About me");
-  setText('[data-i18n="aboutCta"]', copy.aboutCta || "About me");
+  setText('[data-i18n="about.title"]', copy.aboutTitle || "about me");
+  setText('[data-i18n="aboutCta"]', copy.aboutCta || "about me →");
   setText('[data-i18n="backToWork"]', copy.backToWork || "Back to Work");
 
   renderAbout(copy);

@@ -1,8 +1,8 @@
 const COPY = {
   es: {
     nav: { about: "About", work: "Work" },
-    aboutTitle: "About me",
-    aboutCta: "About me →",
+    aboutTitle: "about me",
+    aboutCta: "about me →",
     backToWork: "← Volver a Work",
     hero: {
       sub: "comunicación · creatividad · eventos",
@@ -16,6 +16,7 @@ const COPY = {
       client: "Cliente",
       discipline: "Disciplina",
       year: "Año",
+      instagram: "Instagram",
       next: "Siguiente proyecto",
     },
     about: [
@@ -83,6 +84,7 @@ const COPY = {
         client: "Tuantojo",
         tag: "Campaña de lanzamiento y branding",
         role: "Dirección creativa, mensaje y campaña de salida",
+        instagram: "https://www.instagram.com/tuantojo.es/",
         body: [
           "Contratada para desarrollar la campaña de lanzamiento y el branding de Tuantojo, servicio de delivery en Torre Pacheco. Trabajo a dupla: diseño principal de la identidad a cargo de mi compañero; visión de marca, mensaje, dirección de arte del spot, guion, planos y estrategia de redes sociales (incluidos algunos diseños) a mi cargo.",
           "El concepto: partí de un insight local —la percepción de inseguridad y robos en la zona— y le di la vuelta: en lugar de un encapuchado que roba, un \"enmascarado\" que reparte pedidos delivery. La campaña se construyó como una falsa noticia de alarma social que terminaba revelando la marca.",
@@ -97,6 +99,12 @@ const COPY = {
             featured: true,
             span: "full",
           },
+        ],
+        metrics: [
+          { value: "+600", label: "seguidores locales · 2 semanas", icon: "followers" },
+          { value: "+2.500", label: "usuarios registrados · pre-apertura", icon: "users" },
+          { value: "7.000+", label: "usuarios registrados · Torre Pacheco", icon: "users" },
+          { value: "450", label: "pedidos semanales de media", icon: "orders" },
         ],
       },
       {
@@ -220,6 +228,7 @@ const COPY = {
         client: "Mantra",
         tag: "Dirección creativa y producción de eventos",
         role: "Campañas, dirección de arte y producción integral (oct. 2024 – cierre de marca)",
+        instagram: "https://www.instagram.com/mantra_event/",
         body: [
           "Responsable de la dirección creativa y producción de todos los eventos de Mantra desde octubre de 2024 hasta el cierre de la marca: campañas de comunicación, dirección de arte, decoración de espacios y coordinación de producción en sala.",
           "El concepto: cada evento se planteaba como una experiencia de marca completa, no solo como una fiesta. El 75% de las piezas de campaña fueron diseñadas por mí directamente; el resto, en colaboración con mi equipo. Diseñaba también los guiones visuales para el diseñador de apoyo —recorrido de cámara, figuras, referencias— definiendo la dirección creativa de principio a fin.",
@@ -227,12 +236,125 @@ const COPY = {
           "Aniversario · 1.200 asistentes (evento de mayor afluencia): producción integral con dos escenarios, cuatro barras y dieciséis camareros, coordinación de equipo de luces y proveedores, y apoyo en sala durante todo el directo resolviendo incidencias en tiempo real, desde datáfonos hasta decoración.",
           "Resultado: una identidad de marca consistente y reconocible en cada evento, sostenida por relaciones comerciales duraderas con partners locales y una producción capaz de operar sin fisuras incluso en el evento de mayor escala de la marca.",
         ],
+        media: [
+          {
+            type: "video",
+            src: "assets/work/mantra/principal.mp4",
+            label: "Pieza principal",
+            featured: true,
+            span: "full",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/nochevieja.mp4",
+            label: "Nochevieja · una invitación, un destino",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/aftermovie.mp4",
+            label: "Aftermovie · evento 1.200 personas",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/reel-terraceo.mp4",
+            label: "Reel · terraceo LaHaus",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/promo-lahaus.mp4",
+            label: "Promo · LaHaus",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/promo-entropia.mp4",
+            label: "Promo · colaboración Entropía",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/promo-b2b.mp4",
+            label: "Promo · B2B",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/reel-rrpps.mp4",
+            label: "Reel · buscamos RRPPs",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/reel-2.mp4",
+            label: "Reel",
+          },
+        ],
+        metrics: [
+          { value: "272K", label: "reproducciones · 11 publicaciones", icon: "plays" },
+          { value: "2,99K", label: "interacciones", icon: "interactions" },
+          { value: "57K", label: "visualizaciones · Reels", icon: "reels" },
+        ],
+      },
+      {
+        id: "entropia",
+        client: "Entropía",
+        caseClient: "Entropía Cóctel Bar",
+        tag: "Dirección creativa, contenido y diseño de espacio",
+        role: "Creación de marca desde cero: contenido, dirección de fotografía y diseño de interior",
+        discipline: ["Dirección creativa", "Contenido", "Diseño de espacio"],
+        body: [
+          "Local de cócteles clásicos y de autor, música y eventos en pleno centro de Murcia. Junto a mi dupla, construimos la marca desde cero — y mi rol aquí fue más allá de la gestión de redes: actué como dirección creativa del proyecto, pensando el espacio físico como una pieza más de la estrategia de marca, no como un elemento separado del contenido.",
+          "El concepto: trasladar a un espacio físico la creatividad que los CEOs querían transmitir, combinando cultura cinéfila clásica con identidad urbana y local. Cada decisión de diseño —desde una pared hasta un plano de cámara— debía responder a esa misma idea de marca.",
+          "La ejecución: diseño y empapelado completo del local con carteles de los grandes clásicos del cine, adaptados todos al mismo formato y en blanco y negro para dar coherencia visual al espacio. Las columnas, en cambio, se cedieron como lienzo a grafiteros de Murcia, aportando el sello underground y personal de la ciudad al diseño — una decisión de curaduría artística tanto como de identidad de marca. Sobre ese mismo espacio, dirigí la fotografía para generar el contenido de redes, asegurando que lo que se veía en pantalla fuera exactamente lo que se vivía en el local. Además, impulsé una colaboración cruzada con otro de mis clientes, Mantra, para un evento conjunto entre ambas marcas.",
+          "Resultado: un espacio con identidad propia y reconocible, donde el diseño interior, la curaduría artística y el contenido digital nacen de una misma dirección creativa — cada pared es, literalmente, un fondo de marca — y una red de colaboraciones que conecta a Entropía con otros proyectos de mi cartera de clientes.",
+        ],
+        media: [
+          {
+            type: "video",
+            src: "assets/work/entropia/principal.mp4",
+            label: "Pieza principal",
+            featured: true,
+            span: "full",
+          },
+          {
+            type: "video",
+            src: "assets/work/entropia/tropicolada.mp4",
+            label: "Tropicolada",
+          },
+          {
+            type: "image",
+            src: "assets/work/entropia/carrusel-01.jpg",
+            label: "Carrusel · cóctel y barra",
+          },
+          {
+            type: "image",
+            src: "assets/work/entropia/carrusel-02.jpg",
+            label: "Carrusel · brindis en sala",
+          },
+          {
+            type: "image",
+            src: "assets/work/entropia/carrusel-03.jpg",
+            label: "Carrusel · espacio y cóctel",
+          },
+          {
+            type: "image",
+            src: "assets/work/entropia/story-que-te-apetece.jpg",
+            label: "Story · ¿qué te apetece tomar hoy?",
+          },
+          {
+            type: "image",
+            src: "assets/work/entropia/story-copa.jpg",
+            label: "Story · cóctel de autor",
+          },
+          {
+            type: "image",
+            src: "assets/work/entropia/poster-nochevieja.jpg",
+            label: "Póster · Nochevieja",
+          },
+        ],
       },
       {
         id: "mamaluna",
         client: "Discoteca Ático Mamaluna",
         tag: "Gestión de marca y producción de eventos",
         role: "Gestión de redes sociales, contenido UGC y producción integral de fiestas temáticas",
+        instagram: "https://www.instagram.com/discotecamamaluna/",
         body: [
           "Relación de más de 5 años con la marca, con dos etapas diferenciadas: los 3 primeros años como generadora de contenido UGC en directo dentro de sala para stories, y desde 2025 (continuando en 2026) como responsable de la gestión de redes sociales de la marca desde mi propia empresa de publicidad.",
           "El concepto: entender la discoteca no solo como un espacio de ocio nocturno, sino como una marca que necesita coherencia entre lo que ocurre dentro de sala y lo que se comunica fuera de ella. Cada fiesta temática se planteaba como una pieza de contenido en sí misma, pensada para generar material aprovechable en redes desde el propio diseño del evento.",
@@ -254,6 +376,7 @@ const COPY = {
         client: "Distrito 13",
         tag: "Dirección creativa, estrategia de marca y gestión de comunidad",
         role: "Redes sociales · copy · identidad de eventos · community (2 años)",
+        instagram: "https://www.instagram.com/distrito13club/",
         body: [
           "Distrito 13 era un club nocturno en pleno centro de Murcia. Durante los dos años que estuvo abierto, llevé yo sola toda su presencia en redes: estrategia de marca, copywriting, línea visual y gestión de comunidad. Nada de \"publicar por publicar\" — la idea desde el minuto uno fue construir una voz propia, con un tono gamberro y muy reconocible, que hiciera que la gente no solo viniera al club, sino que se quedara enganchada a lo que contábamos en Instagram.",
           "La ejecución: escribí cada copy pensando en que sonara como habla la gente, no como habla una discoteca. Nada de plantillas ni de \"este viernes gran fiesta\" — frases con gancho, con humor local, con ese puntito canalla que hacía que la gente compartiera las publicaciones solo por el texto. Construí también la identidad visual de cada evento, coordiné con DJs y colaboradores (@pepeolivares5, @orojondo y otros) y mantuve una cadencia de contenido constante entre fotos de eventos, reels de ambiente y anuncios de programación.",
@@ -269,17 +392,30 @@ const COPY = {
             span: "full",
           },
         ],
+        metrics: [
+          { value: "2.707", label: "seguidores desde cero · 2 años", icon: "followers" },
+          { value: "4,63%", label: "engagement medio", icon: "engagement" },
+          { value: "6.263", label: "visualizaciones medias · Reels", icon: "reels" },
+          { value: "117", label: "likes medios por publicación", icon: "interactions" },
+        ],
       },
       {
         id: "dulcevida",
         client: "Dulce Vida",
         tag: "Brand & content strategy · churrería",
         role: "Crecimiento orgánico · estrategia de contenido · comunicación de marca",
+        instagram: "https://www.instagram.com/dulcevida_churreria/",
         body: [
           "Estrategia de contenido y comunicación de marca para un obrador familiar con apenas dos años de trayectoria, partiendo de una cuenta con 150 seguidores.",
           "El concepto: el reto no era publicar más, sino comunicar mejor para diferenciar un producto artesanal frente a la oferta industrial. Construimos la comunicación alrededor de tres territorios emocionales —miedo (qué consumimos realmente), dolor (rechazo a lo industrial e impersonal) y deseo (volver al sabor de siempre)— como eje de toda la estrategia.",
           "La ejecución: estrategia de contenido 100% orgánica combinando reels, carruseles y contenido educativo, emocional y de producto, diseñada para construir una narrativa de marca reconocible, no solo para generar publicaciones puntuales.",
           "Resultado: de 150 a 1.045 seguidores (+596%) de forma completamente orgánica, con piezas de contenido que alcanzaron entre 1.500 y 19.400 reproducciones —superando ampliamente el tamaño de la comunidad de partida y demostrando alcance real más allá de la audiencia ya fidelizada.",
+        ],
+        metrics: [
+          { value: "1.045", label: "seguidores · desde 150", icon: "followers" },
+          { value: "+596%", label: "crecimiento orgánico", icon: "growth" },
+          { value: "19,4K", label: "reproducciones · pico de pieza", icon: "plays" },
+          { value: "1,5K+", label: "reproducciones · piezas base", icon: "reels" },
         ],
       },
       {
@@ -287,6 +423,7 @@ const COPY = {
         client: "Blackout Smash Burger",
         tag: "Campañas ad hoc",
         role: "Concepto creativo y piezas de campaña bajo demanda",
+        instagram: "https://www.instagram.com/blackout_smash_burger/",
         body: [
           "Colaboración por proyectos con Blackout Smash Burger: desarrollo de campañas puntuales bajo pedido del cliente, además de piezas para su cuenta de Instagram.",
           "El concepto (campaña de Navidad \"Bad Santa\"): Papá Noel llega a dejar regalos a Blackout, pero al pasar frente a la caja fuerte de la marca se siente irresistiblemente atraído por sus novedades, las abre y se las roba. La idea central: las novedades de Blackout son tan irresistibles que ni siquiera Santa puede resistirse a ellas.",
@@ -310,6 +447,7 @@ const COPY = {
         caseClient: "El Cortijo Torreguil",
         tag: "Estrategia de comunicación",
         role: "Estrategia, dirección de contenido, guionización y comunicación de marca",
+        instagram: "https://www.instagram.com/elcortijodetorreguil/",
         discipline: ["Estrategia", "Contenido", "Guion"],
         year: "",
         body: [
@@ -373,8 +511,8 @@ const COPY = {
   },
   en: {
     nav: { about: "About", work: "Work" },
-    aboutTitle: "About me",
-    aboutCta: "About me →",
+    aboutTitle: "about me",
+    aboutCta: "about me →",
     backToWork: "← Back to Work",
     hero: {
       sub: "communication · creativity · events",
@@ -388,6 +526,7 @@ const COPY = {
       client: "Client",
       discipline: "Discipline",
       year: "Year",
+      instagram: "Instagram",
       next: "Next project",
     },
     about: [
@@ -455,6 +594,7 @@ const COPY = {
         client: "Tuantojo",
         tag: "Launch campaign and branding",
         role: "Creative direction, message and go-to-market campaign",
+        instagram: "https://www.instagram.com/tuantojo.es/",
         body: [
           "Hired to build the launch campaign and branding for Tuantojo, a delivery service in Torre Pacheco. Worked as a duo: my partner led identity design; I owned brand vision, message, art direction of the spot, script, shots and social strategy (including some of the design).",
           "The idea: a local insight — a sense of insecurity and theft in the area — flipped. Not a hooded figure who steals, a masked figure who delivers. The campaign played as a fake public alarm that revealed the brand.",
@@ -469,6 +609,12 @@ const COPY = {
             featured: true,
             span: "full",
           },
+        ],
+        metrics: [
+          { value: "+600", label: "local followers · 2 weeks", icon: "followers" },
+          { value: "+2,500", label: "registered users · pre-opening", icon: "users" },
+          { value: "7,000+", label: "registered users · Torre Pacheco", icon: "users" },
+          { value: "450", label: "average weekly orders", icon: "orders" },
         ],
       },
       {
@@ -592,6 +738,7 @@ const COPY = {
         client: "Mantra",
         tag: "Creative direction and event production",
         role: "Campaigns, art direction and full production (Oct 2024 – brand close)",
+        instagram: "https://www.instagram.com/mantra_event/",
         body: [
           "Creative direction and production for every Mantra event from October 2024 until the brand closed: communication campaigns, art direction, space decoration and on-site production.",
           "The idea: each night as a full brand experience, not just a party. I designed 75% of campaign pieces myself; the rest with my team. I also wrote visual scripts for the support designer — camera path, figures, references — owning creative direction end to end.",
@@ -599,12 +746,125 @@ const COPY = {
           "Anniversary · 1,200 guests (largest turnout): full production with two stages, four bars and sixteen waiters, lighting crew and suppliers, and floor support all night — from card machines to decoration.",
           "Result: a consistent, recognisable brand identity at every event, held up by lasting local partnerships and production that still held on the brand’s biggest night.",
         ],
+        media: [
+          {
+            type: "video",
+            src: "assets/work/mantra/principal.mp4",
+            label: "Main piece",
+            featured: true,
+            span: "full",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/nochevieja.mp4",
+            label: "New Year’s Eve · an invitation, a destination",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/aftermovie.mp4",
+            label: "Aftermovie · 1,200-guest event",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/reel-terraceo.mp4",
+            label: "Reel · LaHaus terrace",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/promo-lahaus.mp4",
+            label: "Promo · LaHaus",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/promo-entropia.mp4",
+            label: "Promo · Entropía collab",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/promo-b2b.mp4",
+            label: "Promo · B2B",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/reel-rrpps.mp4",
+            label: "Reel · looking for RRPPs",
+          },
+          {
+            type: "video",
+            src: "assets/work/mantra/reel-2.mp4",
+            label: "Reel",
+          },
+        ],
+        metrics: [
+          { value: "272K", label: "plays · 11 posts", icon: "plays" },
+          { value: "2.99K", label: "interactions", icon: "interactions" },
+          { value: "57K", label: "views · Reels", icon: "reels" },
+        ],
+      },
+      {
+        id: "entropia",
+        client: "Entropía",
+        caseClient: "Entropía Cóctel Bar",
+        tag: "Creative direction, content and space design",
+        role: "Brand from scratch: content, photo direction and interior design",
+        discipline: ["Creative direction", "Content", "Space design"],
+        body: [
+          "A classic and signature cocktail bar, music and events in the centre of Murcia. With my creative partner we built the brand from zero — and my role went past social: I was creative director, treating the physical space as part of the brand strategy, not as something separate from the content.",
+          "The idea: bring into a room the creativity the owners wanted to project — classic film culture mixed with an urban, local identity. Every design choice, from a wall to a camera shot, had to answer that same brand idea.",
+          "The work: full interior wrap of the venue with posters of cinema classics, all in the same format and in black and white for visual coherence. The columns were left as a canvas for Murcia graffiti artists — underground and local, a curatorial call as much as a brand one. On that same space I directed the photography for social, so what appeared on screen was what you lived in the room. I also drove a cross collaboration with another client, Mantra, for a joint event.",
+          "Result: a space with a clear identity of its own, where interior design, art curation and digital content come from one creative direction — every wall is literally a brand backdrop — and a collaboration network that ties Entropía to other clients in my roster.",
+        ],
+        media: [
+          {
+            type: "video",
+            src: "assets/work/entropia/principal.mp4",
+            label: "Main piece",
+            featured: true,
+            span: "full",
+          },
+          {
+            type: "video",
+            src: "assets/work/entropia/tropicolada.mp4",
+            label: "Tropicolada",
+          },
+          {
+            type: "image",
+            src: "assets/work/entropia/carrusel-01.jpg",
+            label: "Carousel · cocktail and bar",
+          },
+          {
+            type: "image",
+            src: "assets/work/entropia/carrusel-02.jpg",
+            label: "Carousel · toast in the room",
+          },
+          {
+            type: "image",
+            src: "assets/work/entropia/carrusel-03.jpg",
+            label: "Carousel · space and cocktail",
+          },
+          {
+            type: "image",
+            src: "assets/work/entropia/story-que-te-apetece.jpg",
+            label: "Story · what are you drinking today?",
+          },
+          {
+            type: "image",
+            src: "assets/work/entropia/story-copa.jpg",
+            label: "Story · signature cocktail",
+          },
+          {
+            type: "image",
+            src: "assets/work/entropia/poster-nochevieja.jpg",
+            label: "Poster · New Year’s Eve",
+          },
+        ],
       },
       {
         id: "mamaluna",
         client: "Discoteca Ático Mamaluna",
         tag: "Brand management and event production",
         role: "Social, UGC and full production of themed parties",
+        instagram: "https://www.instagram.com/discotecamamaluna/",
         body: [
           "More than five years with the brand, in two stages: the first three years generating live UGC in the room for stories; from 2025 (into 2026) running the brand’s social from my own studio.",
           "The idea: a club is not only a night space — it is a brand that needs coherence between what happens on the floor and what is said outside. Each themed party was designed as content, so the event itself produced usable social material.",
@@ -626,6 +886,7 @@ const COPY = {
         client: "Distrito 13",
         tag: "Creative direction, brand strategy and community",
         role: "Social · copy · event identity · community (2 years)",
+        instagram: "https://www.instagram.com/distrito13club/",
         body: [
           "Distrito 13 was a nightclub in the centre of Murcia. For the two years it was open, I ran its whole social presence alone: brand strategy, copywriting, visual line and community. Not posting for the sake of posting — from day one the aim was a voice of its own, cheeky and unmistakable, so people would not only come to the club, they would stay hooked on what we said on Instagram.",
           "The work: every caption written to sound like how people talk, not how a club talks. No templates, no \"this Friday big party\" — hooks, local humour, that slightly naughty edge that made people share posts for the text alone. I also built the visual identity for each event, coordinated with DJs and collaborators (@pepeolivares5, @orojondo and others), and kept a steady mix of event photos, atmosphere reels and programming announcements.",
@@ -641,17 +902,30 @@ const COPY = {
             span: "full",
           },
         ],
+        metrics: [
+          { value: "2,707", label: "followers from zero · 2 years", icon: "followers" },
+          { value: "4.63%", label: "average engagement", icon: "engagement" },
+          { value: "6,263", label: "average views · Reels", icon: "reels" },
+          { value: "117", label: "average likes per post", icon: "interactions" },
+        ],
       },
       {
         id: "dulcevida",
         client: "Dulce Vida",
         tag: "Brand and content strategy · churrería",
         role: "Organic growth · content strategy · brand communication",
+        instagram: "https://www.instagram.com/dulcevida_churreria/",
         body: [
           "Content and brand communication for a family bakery barely two years old, starting from 150 followers.",
           "The idea: not post more — communicate better, to set artisan product apart from industrial supply. We built the voice around three emotional territories — fear (what are we actually eating), pain (rejection of the industrial and impersonal) and desire (the taste you remember).",
           "The work: a 100% organic mix of reels, carousels and educational, emotional and product content, meant to build a recognisable brand narrative rather than one-off posts.",
           "Result: 150 to 1,045 followers (+596%) fully organic, with pieces reaching 1,500 to 19,400 views — well beyond the starting community, and a family churrería with a voice of its own.",
+        ],
+        metrics: [
+          { value: "1,045", label: "followers · from 150", icon: "followers" },
+          { value: "+596%", label: "organic growth", icon: "growth" },
+          { value: "19.4K", label: "views · peak piece", icon: "plays" },
+          { value: "1.5K+", label: "views · base pieces", icon: "reels" },
         ],
       },
       {
@@ -659,6 +933,7 @@ const COPY = {
         client: "Blackout Smash Burger",
         tag: "Ad hoc campaigns",
         role: "Creative concept and campaign pieces on demand",
+        instagram: "https://www.instagram.com/blackout_smash_burger/",
         body: [
           "Project-based work with Blackout Smash Burger: campaigns on request, plus pieces for their Instagram.",
           "The idea (Christmas “Bad Santa”): Santa comes to leave gifts at Blackout, then cannot resist the brand safe, opens it and steals the new menu. Even Santa cannot resist Blackout’s drops.",
@@ -682,6 +957,7 @@ const COPY = {
         caseClient: "El Cortijo Torreguil",
         tag: "Communication strategy",
         role: "Strategy, content direction, scripting and brand communication",
+        instagram: "https://www.instagram.com/elcortijodetorreguil/",
         discipline: ["Strategy", "Content", "Script"],
         year: "",
         body: [
@@ -763,8 +1039,17 @@ const WORK_CARDS = [
   },
   {
     id: "mantra",
-    cover: "",
-    fan: [],
+    cover: "assets/work/covers/mantra.jpg",
+    fan: ["assets/work/covers/mantra.jpg"],
+  },
+  {
+    id: "entropia",
+    cover: "assets/work/covers/entropia.jpg",
+    fan: [
+      "assets/work/entropia/carrusel-01.jpg",
+      "assets/work/entropia/carrusel-02.jpg",
+      "assets/work/entropia/story-copa.jpg",
+    ],
   },
   {
     id: "mamaluna",

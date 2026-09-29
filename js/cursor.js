@@ -219,6 +219,7 @@
       ".case__lead",
       ".case__meta span",
       ".case__meta strong",
+      ".case__instagram",
       ".case__copy p",
       ".case__copy h4",
       ".case__intro",

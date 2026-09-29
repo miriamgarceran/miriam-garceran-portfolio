@@ -1,3 +1,23 @@
+@font-face {
+  font-family: "Bootzy TM";
+  src: url("../assets/fonts/BootzyTM.woff2") format("woff2"),
+       url("../assets/fonts/BootzyTM.woff") format("woff"),
+       url("../assets/fonts/BootzyTM.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "bootzy TM TTF 1";
+  src: url("../assets/fonts/BootzyTM.woff2") format("woff2"),
+       url("../assets/fonts/BootzyTM.woff") format("woff"),
+       url("../assets/fonts/BootzyTM.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #000000;
   --text: #f2f2f2;
@@ -6,6 +26,7 @@
   --gutter: clamp(16px, 2.23vw, 42px);
   --font: "DM Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --display: "Syne", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bootzy: "Bootzy TM", "bootzy TM TTF 1", sans-serif;
   /* Matches Etienne Planeix (Neue Haas Grotesk Display Pro) */
   --case-copy: "Neue Haas Grotesk Display Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -234,6 +255,8 @@ video.ripple-layer {
 
 .about-hero .ripple-wrap--abs .about-title {
   mix-blend-mode: normal;
+  color: #ffffff;
+  font-family: var(--bootzy);
 }
 
 .spray-defs,
@@ -309,7 +332,6 @@ button {
 }
 
 .section-head h2,
-.about-title,
 .contact h2,
 .work-toggle h3 {
   font-family: var(--display);
@@ -403,6 +425,13 @@ button {
   transition: opacity 0.2s ease;
 }
 
+.page-link[data-i18n="aboutCta"],
+.font-bootzy {
+  font-family: var(--bootzy);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
 .page-link:hover {
   opacity: 0.55;
 }
@@ -439,15 +468,17 @@ button {
 .about-title {
   position: absolute;
   left: 0;
-  bottom: -0.28em;
+  bottom: -0.24em;
   margin: 0;
-  font-weight: 500;
-  font-size: clamp(56px, 12vw, 180px);
-  line-height: 0.8;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  color: var(--bg);
+  font-family: var(--bootzy);
+  font-weight: 400;
+  font-size: clamp(64px, 13vw, 190px);
+  line-height: 0.85;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: #ffffff;
   mix-blend-mode: difference;
+  z-index: 2;
 }
 
 .about-body {
@@ -914,6 +945,24 @@ button {
   min-height: 1.15em;
 }
 
+.case__instagram {
+  display: inline-block;
+  margin-top: 2px;
+  font-weight: 500;
+  font-size: clamp(16px, 1.45vw, 24px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 1px;
+  transition: opacity 0.2s ease;
+}
+
+.case__instagram:hover {
+  opacity: 0.55;
+}
+
 .case__stack {
   display: flex;
   flex-direction: column;
@@ -937,6 +986,13 @@ button {
   height: auto;
   background: #000;
   object-fit: contain;
+}
+
+.case__piece--hero-landscape video {
+  width: 100%;
+  max-height: min(78vh, 860px);
+  object-fit: cover;
+  object-position: center;
 }
 
 /* Portrait main pieces only (e.g. Radikal aftermovie) */
@@ -1186,8 +1242,10 @@ main {
 }
 
 .case__metrics {
-  --metric-accent: #e8a88a;
-  width: min(100% - (var(--gutter) * 2), 52rem);
+  --metric-pink: #f6c4d4;
+  --metric-peach: #f2b39a;
+  --metric-orange: #ef9a6c;
+  width: min(100% - (var(--gutter) * 2), 56rem);
   margin: clamp(36px, 5vw, 64px) auto 0;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1195,6 +1253,21 @@ main {
   border-radius: 18px;
   background: #14110f;
   overflow: hidden;
+}
+
+.case__metrics[data-count="1"] {
+  grid-template-columns: 1fr;
+  max-width: 16rem;
+}
+
+.case__metrics[data-count="2"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 28rem;
+}
+
+.case__metrics[data-count="3"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 42rem;
 }
 
 .case__metric {
@@ -1228,11 +1301,20 @@ main {
 }
 
 .case__metric-value {
-  font-size: clamp(28px, 3.2vw, 40px);
+  font-size: clamp(26px, 3vw, 40px);
   font-weight: 700;
   letter-spacing: -0.04em;
-  line-height: 1;
-  color: var(--metric-accent);
+  line-height: 1.05;
+  background-image: linear-gradient(
+    105deg,
+    var(--metric-pink) 0%,
+    var(--metric-peach) 52%,
+    var(--metric-orange) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .case__metric-label {
@@ -1242,7 +1324,7 @@ main {
   text-transform: uppercase;
   color: rgba(242, 242, 242, 0.5);
   line-height: 1.35;
-  max-width: 12ch;
+  max-width: 18ch;
 }
 
 .case__next {
