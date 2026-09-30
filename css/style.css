@@ -382,6 +382,59 @@ button {
   align-items: end;
 }
 
+/* Full-bleed video hero */
+.hero--video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6vh var(--gutter);
+  min-height: calc(100vh - 58px);
+}
+
+.hero-video-wrap {
+  position: relative;
+  width: 75%;
+  max-width: 960px;
+}
+
+.hero-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.hero-audio-btn {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 999px;
+  padding: 7px 14px 7px 10px;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.hero-audio-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.hero-audio-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
 .hero-copy {
   padding-bottom: 2vh;
 }
@@ -456,9 +509,11 @@ button {
 .about-hero {
   position: relative;
   margin: 0 var(--gutter);
+  min-height: clamp(180px, 26vh, 320px);
 }
 
-.about-hero img {
+/* The photo rule is kept for backwards compat but the img has been removed */
+.about-hero img:not(.about-mascot) {
   width: 100%;
   height: min(72vh, 780px);
   object-fit: cover;
@@ -481,11 +536,85 @@ button {
   z-index: 2;
 }
 
+/* Mascot sitting on the "o" of "about" */
+.about-mascot {
+  position: absolute;
+  left: calc(clamp(64px, 13vw, 190px) * 1.1);
+  /* Lower so the hand rests on the letter */
+  bottom: calc(clamp(64px, 13vw, 190px) * -0.02);
+  width: clamp(100px, 12vw, 175px);
+  max-width: 175px;
+  height: auto !important;
+  z-index: 6;
+  pointer-events: none;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+
+/* ── About top: title + right photo side by side ── */
+.about-top {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(16px, 3vw, 48px);
+  padding: 0 var(--gutter);
+  overflow: hidden;
+}
+
+.about-top .about-hero {
+  flex: 1;
+  min-width: 0;
+}
+
+/* contact.jpg (Office Session) — TOP RIGHT, -8°, large */
+.about-col-photo--right-top {
+  flex-shrink: 0;
+  width: clamp(220px, 30vw, 460px);
+  margin: 0;
+  padding: 0;
+  transform: rotate(-8deg);
+  transform-origin: bottom right;
+  filter: drop-shadow(0 16px 40px rgba(0,0,0,0.65));
+  align-self: flex-end;
+  margin-bottom: -2vw;
+}
+
+.about-col-photo--right-top img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* contact2.jpg — MID LEFT, +5° */
+.about-col-photo--left-mid {
+  margin: 0;
+  padding: 0;
+  position: sticky;
+  top: 42vh;
+  transform: rotate(5deg);
+  transform-origin: center center;
+  filter: drop-shadow(0 12px 32px rgba(0,0,0,0.55));
+}
+
+.about-col-photo--left-mid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── About editorial columns (text + left photo) ── */
+.about-columns-wrap {
+  display: grid;
+  grid-template-columns: minmax(140px, 18vw) 1fr;
+  gap: clamp(16px, 2.5vw, 40px);
+  align-items: start;
+  padding: clamp(40px, 5vw, 72px) var(--gutter) clamp(32px, 4vw, 56px);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
 .about-body {
   position: relative;
-  max-width: 1080px;
-  margin: 9vw auto 2vw;
-  padding: 0 clamp(20px, 4vw, 48px);
+  padding: 0 clamp(8px, 1.5vw, 20px);
 }
 
 .about-doodles {

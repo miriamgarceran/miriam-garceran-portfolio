@@ -14,16 +14,16 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css?v=82" />
+    <link rel="stylesheet" href="css/style.css?v=83" />
     <style>
       /* ── Contact page ── */
       .contact-page {
         min-height: 100vh;
         padding: clamp(80px, 10vh, 120px) var(--gutter) clamp(48px, 8vh, 96px);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0;
-        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 640px;
         position: relative;
         overflow: visible;
       }
@@ -34,9 +34,9 @@
       }
 
       .contact-page__label {
-        font-family: var(--bootzy);
-        font-size: clamp(11px, 1vw, 14px);
-        letter-spacing: 0.22em;
+        font-family: var(--font);
+        font-size: clamp(11px, 1vw, 13px);
+        letter-spacing: 0.14em;
         line-height: 2;
         text-transform: uppercase;
         color: var(--muted);
@@ -44,10 +44,12 @@
       }
 
       .contact-page__name {
-        font-family: var(--bootzy);
-        font-size: clamp(42px, 7vw, 100px);
-        line-height: 1.05;
-        letter-spacing: -0.01em;
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: clamp(42px, 9.2vw, 128px);
+        line-height: 0.95;
+        letter-spacing: -0.045em;
+        text-transform: uppercase;
         margin: 0 0 clamp(28px, 4vw, 56px);
         color: var(--text);
       }
@@ -68,18 +70,18 @@
       }
 
       .contact-page__item-label {
-        font-family: var(--bootzy);
+        font-family: var(--font);
         font-size: clamp(9px, 0.8vw, 11px);
-        letter-spacing: 0.24em;
+        letter-spacing: 0.12em;
         line-height: 1.8;
         text-transform: uppercase;
         color: var(--muted);
       }
 
       .contact-page__item-value {
-        font-family: var(--bootzy);
-        font-size: clamp(15px, 1.8vw, 24px);
-        letter-spacing: 0.01em;
+        font-family: var(--font);
+        font-size: clamp(15px, 1.8vw, 22px);
+        letter-spacing: 0;
         line-height: 1.5;
         color: var(--text);
         text-decoration: none;
@@ -111,19 +113,7 @@
         width: clamp(240px, 38vw, 480px);
       }
 
-      /* Chincheta / pin SVG */
-      .contact-page__pin {
-        position: absolute;
-        left: calc(50% - 22px);
-        top: 36%;
-        transform: translateY(-50%);
-        z-index: 10;
-        width: 44px;
-        height: 44px;
-        pointer-events: none;
-        filter: drop-shadow(0 4px 10px rgba(0,0,0,0.65));
-        display: block;
-      }
+      /* Chincheta eliminada */
 
       /* First photo — landscape, no extra frame (the JPG is already a polaroid-style shot) */
       .contact-page__photo-1 {
@@ -158,15 +148,40 @@
         height: auto;
       }
 
+      /* ── Footer nav ── */
+      .contact-page__footer-nav {
+        display: flex;
+        gap: clamp(24px, 4vw, 48px);
+        justify-content: center;
+        padding: clamp(48px, 8vh, 96px) var(--gutter) clamp(32px, 5vh, 64px);
+        border-top: 1px solid var(--line);
+      }
+
+      .contact-page__footer-nav a {
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: clamp(13px, 1.4vw, 18px);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text);
+        text-decoration: none;
+        opacity: 0.6;
+        transition: opacity 0.2s;
+      }
+
+      .contact-page__footer-nav a:hover {
+        opacity: 1;
+      }
+
       /* ── Back link ── */
       .contact-back {
         position: fixed;
         top: clamp(14px, 2vh, 24px);
         left: calc(var(--gutter) + 42px);
         z-index: 100;
-        font-family: var(--bootzy);
+        font-family: var(--font);
         font-size: 12px;
-        letter-spacing: 0.14em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
         color: var(--text);
         text-decoration: none;
@@ -204,6 +219,7 @@
       <a class="wordmark" href="index.html">MG</a>
       <nav class="nav" aria-label="Principal">
         <a href="index.html#work" data-i18n="nav.work">Work</a>
+        <a href="about.html" data-i18n="nav.about">About me</a>
         <a href="contact.html" aria-current="page" data-i18n="nav.contact">Contact</a>
         <div class="lang" role="group" aria-label="Idioma">
           <button type="button" data-lang="es" aria-pressed="true">ES</button>
@@ -243,49 +259,15 @@
           </ul>
         </div>
 
-        <!-- RIGHT: photo stack + pin -->
-        <div class="contact-page__photo-wrap" aria-hidden="true">
-          <div class="contact-page__stack">
-
-            <!-- Photo 1: landscape (Office Session) -->
-            <figure class="contact-page__photo-1">
-              <img
-                src="assets/img/contact.jpg"
-                alt="Office Session — Miriam Garcerán"
-                loading="lazy"
-              />
-            </figure>
-
-            <!-- Silver pin between photos -->
-            <svg class="contact-page__pin" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <!-- Pin body (circle) -->
-              <circle cx="14" cy="12" r="9" fill="url(#pin-grad)" stroke="#c0c0c0" stroke-width="0.8"/>
-              <!-- Highlight -->
-              <ellipse cx="11" cy="9" rx="3" ry="2" fill="rgba(255,255,255,0.45)" transform="rotate(-20 11 9)"/>
-              <!-- Needle -->
-              <line x1="14" y1="21" x2="14" y2="28" stroke="#a8a8a8" stroke-width="1.5" stroke-linecap="round"/>
-              <defs>
-                <radialGradient id="pin-grad" cx="40%" cy="35%" r="65%">
-                  <stop offset="0%" stop-color="#e8e8e8"/>
-                  <stop offset="60%" stop-color="#b0b0b0"/>
-                  <stop offset="100%" stop-color="#888"/>
-                </radialGradient>
-              </defs>
-            </svg>
-
-            <!-- Photo 2: portrait Polaroid (already has white border in the image) -->
-            <figure class="contact-page__photo-2">
-              <img
-                src="assets/img/contact2.jpg"
-                alt="Sesión oficina — Miriam Garcerán"
-                loading="lazy"
-              />
-            </figure>
-
-          </div>
-        </div>
+        <!-- Fotos trasladadas a about.html -->
 
       </section>
+
+      <nav class="contact-page__footer-nav" aria-label="Navegar a">
+        <a href="index.html#work" data-i18n="nav.work">Work</a>
+        <a href="about.html" data-i18n="nav.about">About me</a>
+      </nav>
+
     </main>
 
     <footer class="site-footer">
@@ -323,9 +305,9 @@
       </defs>
     </svg>
 
-    <script src="js/content.js?v=82"></script>
-    <script src="js/main.js?v=82"></script>
-    <script src="js/cursor.js?v=82"></script>
+    <script src="js/content.js?v=83"></script>
+    <script src="js/main.js?v=83"></script>
+    <script src="js/cursor.js?v=83"></script>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>

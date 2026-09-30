@@ -14,14 +14,15 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css?v=82" />
+    <link rel="stylesheet" href="css/style.css?v=83" />
   </head>
   <body>
     <header class="site-header">
       <a class="wordmark" href="index.html">MG</a>
       <nav class="nav" aria-label="Principal">
         <a href="index.html#work" data-i18n="nav.work">Work</a>
-        <a href="contact.html">Contact</a>
+        <a href="about.html" aria-current="page" data-i18n="nav.about">About me</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
         <div class="lang" role="group" aria-label="Idioma">
           <button type="button" data-lang="es" aria-pressed="true">ES</button>
           <button type="button" data-lang="en" aria-pressed="false">EN</button>
@@ -31,14 +32,26 @@
 
     <main>
       <section id="about" class="about-page">
-        <div class="about-hero">
-          <img
-            src="assets/img/about.jpg?v=82"
-            alt="Retrato editorial de Miriam Garcerán"
-          />
-          <h1 class="about-title" data-i18n="about.title">about me</h1>
+        <div class="about-top">
+          <div class="about-hero">
+            <h1 class="about-title" data-i18n="about.title">about me</h1>
+            <img
+              class="about-mascot"
+              src="assets/img/lucifer-transparent.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+          <figure class="about-col-photo--right-top">
+            <img src="assets/img/contact.jpg" alt="Miriam Garcerán" />
+          </figure>
         </div>
-        <div class="about-body" id="about-body"></div>
+        <div class="about-columns-wrap">
+          <figure class="about-col-photo--left-mid">
+            <img src="assets/img/contact2.jpg" alt="Miriam Garcerán" />
+          </figure>
+          <div class="about-body" id="about-body"></div>
+        </div>
         <p class="about-back">
           <a class="page-link" href="index.html#work" data-i18n="backToWork"
             >Volver a Work</a
@@ -82,8 +95,8 @@
       </defs>
     </svg>
 
-    <script src="js/content.js?v=82"></script>
-    <script src="js/main.js?v=82"></script>
-    <script src="js/cursor.js?v=82"></script>
+    <script src="js/content.js?v=83"></script>
+    <script src="js/main.js?v=83"></script>
+    <script src="js/cursor.js?v=83"></script>
   </body>
 </html>

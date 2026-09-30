@@ -233,7 +233,7 @@
       ".wordmark",
       ".site-footer span",
       ".hero-photo img",
-      ".about-hero img",
+      ".about-hero img:not(.about-mascot)",
       ".work-media img",
       ".work-media__pdf span",
       ".work-media__item figcaption",

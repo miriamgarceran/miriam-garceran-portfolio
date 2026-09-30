@@ -557,7 +557,9 @@ function render() {
   document.documentElement.lang = lang;
   syncLangButtons();
 
-  setText('[data-i18n="nav.work"]', copy.nav.work);
+  setText('[data-i18n="nav.work"]',    copy.nav.work);
+  setText('[data-i18n="nav.about"]',   copy.nav.about);
+  setText('[data-i18n="nav.contact"]', copy.nav.contact);
   setText('[data-i18n="hero.sub"]', copy.hero.sub);
   setText('[data-i18n="hero.meta"]', copy.hero.meta);
   setText('[data-i18n="work.title"]', copy.work.title);
