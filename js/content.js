@@ -426,6 +426,45 @@ const COPY = {
           "La ejecución: estrategia de contenido 100% orgánica combinando reels, carruseles y contenido educativo, emocional y de producto, diseñada para construir una narrativa de marca reconocible, no solo para generar publicaciones puntuales.",
           "Resultado: de 150 a 1.045 seguidores (+596%) de forma completamente orgánica, con piezas de contenido que alcanzaron entre 1.500 y 19.400 reproducciones —superando ampliamente el tamaño de la comunidad de partida y demostrando alcance real más allá de la audiencia ya fidelizada.",
         ],
+        media: [
+          {
+            type: "video",
+            src: "assets/work/dulcevida/reel-01.mp4",
+            label: "Reel · Dulce Vida",
+            featured: true,
+            span: "full",
+          },
+          {
+            type: "video",
+            src: "assets/work/dulcevida/reel-02.mp4",
+            label: "Reel · Dulce Vida",
+          },
+          {
+            type: "video",
+            src: "assets/work/dulcevida/reel-03.mp4",
+            label: "Reel · Dulce Vida",
+          },
+          {
+            type: "image",
+            src: "assets/work/dulcevida/tostada.jpg",
+            label: "Producto · tostada artesanal",
+          },
+          {
+            type: "image",
+            src: "assets/work/dulcevida/churros.jpg",
+            label: "Producto · churros",
+          },
+          {
+            type: "image",
+            src: "assets/work/dulcevida/obrador.jpg",
+            label: "Obrador · elaboración",
+          },
+          {
+            type: "image",
+            src: "assets/work/dulcevida/rodillo.jpg",
+            label: "Obrador · masa artesanal",
+          },
+        ],
         metrics: [
           { value: "1.045", label: "seguidores · desde 150", icon: "followers" },
           { value: "+596%", label: "crecimiento orgánico", icon: "growth" },
@@ -951,6 +990,45 @@ const COPY = {
           "The work: a 100% organic mix of reels, carousels and educational, emotional and product content, meant to build a recognisable brand narrative rather than one-off posts.",
           "Result: 150 to 1,045 followers (+596%) fully organic, with pieces reaching 1,500 to 19,400 views — well beyond the starting community, and a family churrería with a voice of its own.",
         ],
+        media: [
+          {
+            type: "video",
+            src: "assets/work/dulcevida/reel-01.mp4",
+            label: "Reel · Dulce Vida",
+            featured: true,
+            span: "full",
+          },
+          {
+            type: "video",
+            src: "assets/work/dulcevida/reel-02.mp4",
+            label: "Reel · Dulce Vida",
+          },
+          {
+            type: "video",
+            src: "assets/work/dulcevida/reel-03.mp4",
+            label: "Reel · Dulce Vida",
+          },
+          {
+            type: "image",
+            src: "assets/work/dulcevida/tostada.jpg",
+            label: "Product · artisan toast",
+          },
+          {
+            type: "image",
+            src: "assets/work/dulcevida/churros.jpg",
+            label: "Product · churros",
+          },
+          {
+            type: "image",
+            src: "assets/work/dulcevida/obrador.jpg",
+            label: "Bakery · crafting",
+          },
+          {
+            type: "image",
+            src: "assets/work/dulcevida/rodillo.jpg",
+            label: "Bakery · artisan dough",
+          },
+        ],
         metrics: [
           { value: "1,045", label: "followers · from 150", icon: "followers" },
           { value: "+596%", label: "organic growth", icon: "growth" },
@@ -1093,8 +1171,12 @@ const WORK_CARDS = [
   },
   {
     id: "dulcevida",
-    cover: "",
-    fan: [],
+    cover: "assets/work/covers/dulcevida.jpg",
+    fan: [
+      "assets/work/dulcevida/tostada.jpg",
+      "assets/work/dulcevida/churros.jpg",
+      "assets/work/dulcevida/obrador.jpg",
+    ],
   },
   {
     id: "blackout",
