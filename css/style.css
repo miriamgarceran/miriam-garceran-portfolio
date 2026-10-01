@@ -808,6 +808,11 @@ button {
   background: radial-gradient(circle at 30% 20%, #3a3a3a, #0b0b0b);
 }
 
+.coverflow__card[data-id="entropia"] .coverflow__cover,
+.coverflow__card[data-id="entropia"] .coverflow__visual img {
+  object-position: center top;
+}
+
 .coverflow__card[data-id="dulcevida"] .coverflow__visual {
   background: radial-gradient(circle at 70% 30%, #f3d7b0, #c9894a 55%, #5c2e12);
 }
