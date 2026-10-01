@@ -84,7 +84,6 @@ const COPY = {
         client: "Tuantojo",
         tag: "Campaña de lanzamiento y branding",
         role: "Dirección creativa, mensaje y campaña de salida",
-        instagram: "https://www.instagram.com/tuantojo.es/",
         body: [
           "Contratada para desarrollar la campaña de lanzamiento y el branding de Tuantojo, servicio de delivery en Torre Pacheco. Trabajo a dupla: diseño principal de la identidad a cargo de mi compañero; visión de marca, mensaje, dirección de arte del spot, guion, planos y estrategia de redes sociales (incluidos algunos diseños) a mi cargo.",
           "El concepto: partí de un insight local —la percepción de inseguridad y robos en la zona— y le di la vuelta: en lugar de un encapuchado que roba, un \"enmascarado\" que reparte pedidos delivery. La campaña se construyó como una falsa noticia de alarma social que terminaba revelando la marca.",
@@ -298,6 +297,7 @@ const COPY = {
         tag: "Dirección creativa, contenido y diseño de espacio",
         role: "Creación de marca desde cero: contenido, dirección de fotografía y diseño de interior",
         discipline: ["Dirección creativa", "Contenido", "Diseño de espacio"],
+        instagram: "https://www.instagram.com/entropiacoctelbar/",
         body: [
           "Local de cócteles clásicos y de autor, música y eventos en pleno centro de Murcia. Junto a mi dupla, construimos la marca desde cero — y mi rol aquí fue más allá de la gestión de redes: actué como dirección creativa del proyecto, pensando el espacio físico como una pieza más de la estrategia de marca, no como un elemento separado del contenido.",
           "El concepto: trasladar a un espacio físico la creatividad que los CEOs querían transmitir, combinando cultura cinéfila clásica con identidad urbana y local. Cada decisión de diseño —desde una pared hasta un plano de cámara— debía responder a esa misma idea de marca.",
@@ -354,7 +354,6 @@ const COPY = {
         client: "Discoteca Ático Mamaluna",
         tag: "Gestión de marca y producción de eventos",
         role: "Gestión de redes sociales, contenido UGC y producción integral de fiestas temáticas",
-        instagram: "https://www.instagram.com/discotecamamaluna/",
         body: [
           "Relación de más de 5 años con la marca, con dos etapas diferenciadas: los 3 primeros años como generadora de contenido UGC en directo dentro de sala para stories, y desde 2025 (continuando en 2026) como responsable de la gestión de redes sociales de la marca desde mi propia empresa de publicidad.",
           "El concepto: entender la discoteca no solo como un espacio de ocio nocturno, sino como una marca que necesita coherencia entre lo que ocurre dentro de sala y lo que se comunica fuera de ella. Cada fiesta temática se planteaba como una pieza de contenido en sí misma, pensada para generar material aprovechable en redes desde el propio diseño del evento.",
@@ -419,7 +418,6 @@ const COPY = {
         client: "Dulce Vida",
         tag: "Brand & content strategy · churrería",
         role: "Crecimiento orgánico · estrategia de contenido · comunicación de marca",
-        instagram: "https://www.instagram.com/dulcevida_churreria/",
         body: [
           "Estrategia de contenido y comunicación de marca para un obrador familiar con apenas dos años de trayectoria, partiendo de una cuenta con 150 seguidores.",
           "El concepto: el reto no era publicar más, sino comunicar mejor para diferenciar un producto artesanal frente a la oferta industrial. Construimos la comunicación alrededor de tres territorios emocionales —miedo (qué consumimos realmente), dolor (rechazo a lo industrial e impersonal) y deseo (volver al sabor de siempre)— como eje de toda la estrategia.",
@@ -477,7 +475,6 @@ const COPY = {
         client: "Blackout Smash Burger",
         tag: "Campañas ad hoc",
         role: "Concepto creativo y piezas de campaña bajo demanda",
-        instagram: "https://www.instagram.com/blackout_smash_burger/",
         body: [
           "Colaboración por proyectos con Blackout Smash Burger: desarrollo de campañas puntuales bajo pedido del cliente, además de piezas para su cuenta de Instagram.",
           "El concepto (campaña de Navidad \"Bad Santa\"): Papá Noel llega a dejar regalos a Blackout, pero al pasar frente a la caja fuerte de la marca se siente irresistiblemente atraído por sus novedades, las abre y se las roba. La idea central: las novedades de Blackout son tan irresistibles que ni siquiera Santa puede resistirse a ellas.",
@@ -501,7 +498,6 @@ const COPY = {
         caseClient: "El Cortijo Torreguil",
         tag: "Estrategia de comunicación",
         role: "Estrategia, dirección de contenido, guionización y comunicación de marca",
-        instagram: "https://www.instagram.com/elcortijodetorreguil/",
         discipline: ["Estrategia", "Contenido", "Guion"],
         year: "",
         body: [
@@ -648,7 +644,6 @@ const COPY = {
         client: "Tuantojo",
         tag: "Launch campaign and branding",
         role: "Creative direction, message and go-to-market campaign",
-        instagram: "https://www.instagram.com/tuantojo.es/",
         body: [
           "Hired to build the launch campaign and branding for Tuantojo, a delivery service in Torre Pacheco. Worked as a duo: my partner led identity design; I owned brand vision, message, art direction of the spot, script, shots and social strategy (including some of the design).",
           "The idea: a local insight — a sense of insecurity and theft in the area — flipped. Not a hooded figure who steals, a masked figure who delivers. The campaign played as a fake public alarm that revealed the brand.",
@@ -862,6 +857,7 @@ const COPY = {
         tag: "Creative direction, content and space design",
         role: "Brand from scratch: content, photo direction and interior design",
         discipline: ["Creative direction", "Content", "Space design"],
+        instagram: "https://www.instagram.com/entropiacoctelbar/",
         body: [
           "A classic and signature cocktail bar, music and events in the centre of Murcia. With my creative partner we built the brand from zero — and my role went past social: I was creative director, treating the physical space as part of the brand strategy, not as something separate from the content.",
           "The idea: bring into a room the creativity the owners wanted to project — classic film culture mixed with an urban, local identity. Every design choice, from a wall to a camera shot, had to answer that same brand idea.",
@@ -918,7 +914,6 @@ const COPY = {
         client: "Discoteca Ático Mamaluna",
         tag: "Brand management and event production",
         role: "Social, UGC and full production of themed parties",
-        instagram: "https://www.instagram.com/discotecamamaluna/",
         body: [
           "More than five years with the brand, in two stages: the first three years generating live UGC in the room for stories; from 2025 (into 2026) running the brand’s social from my own studio.",
           "The idea: a club is not only a night space — it is a brand that needs coherence between what happens on the floor and what is said outside. Each themed party was designed as content, so the event itself produced usable social material.",
@@ -983,7 +978,6 @@ const COPY = {
         client: "Dulce Vida",
         tag: "Brand and content strategy · churrería",
         role: "Organic growth · content strategy · brand communication",
-        instagram: "https://www.instagram.com/dulcevida_churreria/",
         body: [
           "Content and brand communication for a family bakery barely two years old, starting from 150 followers.",
           "The idea: not post more — communicate better, to set artisan product apart from industrial supply. We built the voice around three emotional territories — fear (what are we actually eating), pain (rejection of the industrial and impersonal) and desire (the taste you remember).",
@@ -1041,7 +1035,6 @@ const COPY = {
         client: "Blackout Smash Burger",
         tag: "Ad hoc campaigns",
         role: "Creative concept and campaign pieces on demand",
-        instagram: "https://www.instagram.com/blackout_smash_burger/",
         body: [
           "Project-based work with Blackout Smash Burger: campaigns on request, plus pieces for their Instagram.",
           "The idea (Christmas “Bad Santa”): Santa comes to leave gifts at Blackout, then cannot resist the brand safe, opens it and steals the new menu. Even Santa cannot resist Blackout’s drops.",
@@ -1065,7 +1058,6 @@ const COPY = {
         caseClient: "El Cortijo Torreguil",
         tag: "Communication strategy",
         role: "Strategy, content direction, scripting and brand communication",
-        instagram: "https://www.instagram.com/elcortijodetorreguil/",
         discipline: ["Strategy", "Content", "Script"],
         year: "",
         body: [
