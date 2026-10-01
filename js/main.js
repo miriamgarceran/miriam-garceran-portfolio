@@ -521,7 +521,10 @@ function renderWork(copy) {
   const detail = document.createElement("div");
   detail.className = "work-detail";
   detail.hidden = true;
-  workEl.replaceChildren(stage, detail);
+  const intro = document.getElementById("work-intro");
+  workEl.replaceChildren(stage);
+  if (intro) workEl.append(intro);
+  workEl.append(detail);
 
   function openProject(i) {
     selectedWorkIndex = i;
@@ -563,6 +566,8 @@ function render() {
   setText('[data-i18n="hero.sub"]', copy.hero.sub);
   setText('[data-i18n="hero.meta"]', copy.hero.meta);
   setText('[data-i18n="work.title"]', copy.work.title);
+  setText('[data-i18n="work.intro"]', copy.work.intro);
+  setText('[data-i18n="work.introCta"]', copy.work.introCta);
   setText('[data-i18n="about.title"]', copy.aboutTitle || "about me");
   setText('[data-i18n="aboutCta"]', copy.aboutCta || "about me →");
   setText('[data-i18n="backToWork"]', copy.backToWork || "Back to Work");

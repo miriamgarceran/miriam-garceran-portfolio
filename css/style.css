@@ -742,7 +742,38 @@ button {
 }
 
 .work-list {
-  margin: 24px 0 10vh;
+  margin: 24px 0 0;
+}
+
+.work-intro {
+  margin: 0 auto;
+  padding: clamp(28px, 5vh, 64px) var(--gutter) clamp(56px, 10vh, 120px);
+  max-width: 52rem;
+  text-align: center;
+}
+
+.work-intro p {
+  margin: 0 auto 1.6rem;
+  font-size: clamp(16px, 1.55vw, 20px);
+  line-height: 1.55;
+}
+
+.work-intro__cta {
+  display: inline-block;
+  border: 1px solid transparent;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.35;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background:
+    linear-gradient(var(--bg), var(--bg)) padding-box,
+    linear-gradient(105deg, #f6c4d4 0%, #f2b39a 52%, #ef9a6c 100%) border-box;
+}
+
+.work-intro__cta:hover {
+  opacity: 0.6;
 }
 
 .coverflow {

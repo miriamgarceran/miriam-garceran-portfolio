@@ -18,6 +18,9 @@ const COPY = {
       year: "Año",
       instagram: "Instagram",
       next: "Siguiente proyecto",
+      intro:
+        "Monté la presentación de un Lamborghini por menos de 5.000€. He simulado un dron sin dron. He trabajado en una fábrica de melones y también he llevado todos los eventos de una promotora de techno. No soy ningún genio — y ese es precisamente mi punto fuerte. Aquí va la historia completa de cómo una autónoma con \"brío\" se apaña con lo que hay.",
+      introCta: "pincha aquí para conocer como funciona esta cabeza",
     },
     about: [
       {
@@ -578,6 +581,9 @@ const COPY = {
       year: "Year",
       instagram: "Instagram",
       next: "Next project",
+      intro:
+        "I put on a Lamborghini presentation for under €5,000. I faked a drone without a drone. I have worked in a melon factory and I have also run every event for a techno promoter. I am not a genius — and that is exactly my strength. Here is the full story of how a freelancer with \"drive\" makes it work with whatever is there.",
+      introCta: "click here to see how this head works",
     },
     about: [
       {
