@@ -22,11 +22,11 @@ const COPY = {
     about: [
       {
         type: "p",
-        text: "Hola! Si estás leyendo esto es porque algo que has visto algo que te ha molado, bien, esa era justo mi intención. Mi nombre es Miriam Garcerán y aquí vamos a conocernos un poco mejor.",
+        text: "Hola! Si estás leyendo esto es porque algo que has visto en mi portfolio te ha molado, bien, esa era justo mi intención. Mi nombre es Miriam Garcerán y aquí vamos a conocernos un poco mejor.",
       },
       {
         type: "p",
-        text: "Estudiando la carrera de publicidad y Relaciones Públicas aterricé en Estudio Porompompon. Ahí me dieron caña, llegué a llevar redes sociales de una empresa de corbatas, de Abono Teatro de Madrid y un sinfín de marcas que no tenían nada que ver entre ellas. Desarrollé mi parte de copy, de manager y sobretodo de resolución de problemas, eso sobre todo. Y entonces llegó el COVID.",
+        text: "Estudiando la carrera de publicidad y Relaciones Públicas aterricé en Estudio Porompompon. Ahí me dieron caña, llegué a llevar estrategias para campañas y redes sociales de una empresa de corbatas, de Abono Teatro de Madrid y un sinfín de marcas que no tenían nada que ver entre ellas. Desarrollé mi parte de copy, de manager y sobretodo de resolución de problemas, eso sobre todo. Y entonces llegó el COVID.",
       },
       {
         type: "p",
@@ -34,17 +34,17 @@ const COPY = {
       },
       {
         type: "p",
-        text: "Podría haberte hecho un CV escueto que solo dijera \"esto sé hacer\". Pero si no te cuento un poco lo que he vivido, no me vas a entender. Y si, todos sabemos lo que dicen: “cuando tienes que dar explicaciones es porque algo no se entiende”. Pues yo creo que sí se entiende. Pero es que aun así te las voy a dar, por si acaso.",
+        text: "Podría haberte hecho un CV escueto que solo dijera \"esto sé hacer\". Pero si no te cuento un poco lo que he vivido, no me vas a entender. Y si, todos sabemos lo que dicen: \"cuando tienes que dar explicaciones es porque algo no se entiende\". Pues yo creo que sí se entiende. Pero es que aun así te las voy a dar, por si acaso.",
       },
       { type: "h3", text: "Lo mío es apañármelas con lo que hay" },
       {
         type: "p",
-        text: "Toda la vida he jugado al juego de Juan Palomo: yo me lo guiso, yo me lo como. Con mis clientes he tenido que inventarme el efecto de un dron sin dron, subir a alguien en un patinete arrastrado con cuerdas para que imitase la velocidad de un coche, esconderme detrás de una rama con un ventilador para simular viento de persecución… Al final lo que vale es quien saca las cosas adelante, no cuánto cuesta hacerlas. En casa nunca hemos tenido mucho (o ningún) dinero, y al final la pobreza agudiza el ingenio.",
+        text: "Toda la vida he jugado al juego de \"Juan Palomo: yo me lo guiso, yo me lo como\". Con mis clientes he tenido que inventarme el efecto de un dron sin dron, subir a alguien en un patinete arrastrado con cuerdas para que imitase la velocidad de un coche, esconderme detrás de una rama con un ventilador para simular viento de persecución… Al final lo que vale es quien saca las cosas adelante, no cuánto cuesta hacerlas. En casa nunca hemos tenido mucho (o ningún) dinero, y al final la pobreza agudiza el ingenio. O eso dicen.",
       },
-      { type: "h3", text: "Mis pilares: cine, arte y música (y mis amigos jod*r)." },
+      { type: "h3", text: "Mis pilares: cine, arte y música (y mis putos amigos joder)." },
       {
         type: "p",
-        text: "Suena genérico, lo sé, pero es que son los míos. De ahí bebo todo lo que hago: campañas como la de Mantra basada en las escenas de Ocean's Eleven, promociones inspiradas en la intro de Shameless… Si tienes un poco de cultura de cine y series, vas a pillar muchas referencias en cuanto veas mi porfolio.",
+        text: "Suena genérico, lo sé, pero es que son mis referentes. De ahí bebo todo lo que hago: campañas como la de Mantra basada en las escenas de Ocean's Eleven, promociones inspiradas en la intro de Shameless… Si tienes un poco de cultura de cine y series, vas a pillar muchas referencias en cuanto veas mi porfolio.",
       },
       {
         type: "p",
@@ -62,16 +62,16 @@ const COPY = {
       { type: "h3", text: "Lo que busco (y lo que soy)" },
       {
         type: "p",
-        text: "Como autónoma, y \"jefa\" entre comillas, cuando he tenido que contratar a alguien lo primero que miro es que tenga “brío”: que sepa apagar fuegos, que resuelva. Si vives en España y cotizas aquí, ya sabes que no hay nadie más creativo que un autónomo español.",
+        text: "Como autónoma, y \"jefa\" entre comillas, cuando he tenido que contratar a alguien lo primero que miro es que tenga \"brío\": que sepa apagar fuegos, que resuelva. Si vives en España y cotizas aquí, ya sabes que no hay nadie más creativo que un autónomo español.",
       },
       {
         type: "p",
-        text: "He trabajado en salas de fiesta, he llevado una promotora de techno, he organizado eventos de más de 1.200 personas. He montado presentaciones de producto de lujo y presentaciones de producto de barrio. Polifacética y resolutiva, esa soy yo. Parece que no tengo abuela diciendo todo esto, pero es simplemente decir quién soy y qué puedo aportarte.",
+        text: "He trabajado en salas de fiesta, he llevado una promotora de techno, he organizado eventos de más de 1.200 personas. He montado presentaciones de producto de lujo y presentaciones de producto de barrio. Ademas de todo lo que puedas ver en este portfolio, he organizado inauguraciones para locales, retiros de yoga y bueno, mi portfolio en si ha sido un proyecto de web que me ha encantado realizar. Polifacética y resolutiva, esa soy yo. Parece que no tengo abuela diciendo todo esto, pero es simplemente decir quién soy y qué puedo aportar a tu equipo o tu empresa.",
       },
       { type: "h3", text: "No soy ningún genio, y eso también es un punto fuerte" },
       {
         type: "p",
-        text: "No paro de leer about-me de creativos que parecen expertos en todas las materias y de todos los programas que dominan y que sacan pecho de lo eruditos que son. Yo no soy eso. No soy el Einstein de nada, no he inventado nada. Soy alguien que coge un problema, ve la solución y la lleva a cabo. Pero siempre de la forma más creativa, más chula y más divertida posible. Porque si nos vamos a tirar siete u ocho horas al día currando, que por lo menos nos apasione y nos saque emociones. Y esto no te lo dice cualquiera: he trabajado en una fábrica de melones, en Pull&Bear, he cuidado niños, he sido camarera, host e imagen. Nunca se me han caído los anillos por nada. Pero todo eso me ha servido para saber que mi profesión me encanta, y que en una empresa como la tuya podría montar cosas increíbles que nos beneficien a todos.",
+        text: "No paro de leer about me de creativos que parecen expertos en todas las materias y de todos los programas que dominan. Yo no soy eso. No soy el Einstein de nada, no he inventado nada. Soy alguien que coge un problema, ve la solución y la lleva a cabo. Pero siempre de la forma más creativa, más chula y más divertida posible. Porque si nos vamos a tirar siete u ocho horas al día currando, que por lo menos nos apasione y nos saque emociones. Y esto no te lo dice cualquiera: he trabajado en una fábrica de melones, en Pull&Bear, he cuidado niños, he sido camarera, host e imagen. Nunca se me han caído los anillos por nada. Pero todo eso me ha servido para saber que mi profesión me apasiona, y que en una empresa como la tuya podría montar cosas increíbles que nos beneficien a todos.",
       },
       {
         type: "p",
