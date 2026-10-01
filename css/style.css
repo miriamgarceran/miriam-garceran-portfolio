@@ -322,6 +322,7 @@ button {
   padding: 14px var(--gutter);
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .wordmark {
@@ -1584,15 +1585,30 @@ main {
     height: 62vh;
   }
 
+  .site-header {
+    gap: 10px 16px;
+    background: var(--bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
   .nav {
-    gap: 10px 12px;
-    flex-wrap: wrap;
+    display: flex;
+    flex: 1 1 100%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
   }
 
   .nav a,
   .lang button {
-    display: inline;
+    display: inline-flex;
+    flex-shrink: 0;
+    white-space: nowrap;
     font-size: 11px;
+    letter-spacing: 0.04em;
   }
 
   .about-body {
