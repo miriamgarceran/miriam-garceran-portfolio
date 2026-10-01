@@ -1611,26 +1611,77 @@ main {
     letter-spacing: 0.04em;
   }
 
+  .about-top {
+    position: relative;
+    align-items: flex-end;
+    padding-bottom: clamp(72px, 22vw, 108px);
+  }
+
+  .about-hero {
+    margin: 0;
+    min-height: clamp(110px, 18vh, 180px);
+  }
+
+  /* Polaroid: small ID-photo on the top photo's right corner, not covering it */
+  .about-columns-wrap {
+    display: block;
+    position: relative;
+    max-width: none;
+    padding: 0 var(--gutter) clamp(24px, 5vw, 40px);
+  }
+
+  .about-col-photo--left-mid {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    width: 72px;
+    margin: 0;
+    transform: translate(6px, calc(-100% - 12px)) rotate(6deg);
+    transform-origin: top right;
+    z-index: 5;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5));
+    pointer-events: none;
+  }
+
+  .about-col-photo--left-mid img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
   .about-body {
-    margin-top: 12vw;
+    margin-top: 4px;
+    width: 100%;
+    column-count: 2;
+    column-gap: 14px;
+    column-fill: balance;
   }
 
   .about-section,
+  .about-section--intro,
   .about-columns {
     display: block;
     column-count: 1;
   }
 
   .about-section {
-    padding: 2.4rem 0;
+    break-inside: avoid;
+    padding: 0.85rem 0 0.95rem;
   }
 
   .about-section h3 {
-    margin: 0 0 0.7rem;
+    margin: 0 0 0.45rem;
+    font-size: 12px;
   }
 
+  .about-columns p,
+  .about-section:not(.about-section--intro) p,
   .about-copy p {
     max-width: none;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 0.85em;
   }
 
   .about-doodles {
