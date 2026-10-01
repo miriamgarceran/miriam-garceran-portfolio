@@ -1611,6 +1611,10 @@ main {
     letter-spacing: 0.04em;
   }
 
+}
+
+/* About me on phones, including iOS “desktop site” (~980px, coarse pointer) */
+@media (max-width: 860px), (pointer: coarse) and (max-width: 1200px) {
   .about-top {
     position: relative;
     align-items: flex-end;
@@ -1622,7 +1626,6 @@ main {
     min-height: clamp(110px, 18vh, 180px);
   }
 
-  /* Polaroid: small ID-photo on the top photo's right corner, not covering it */
   .about-columns-wrap {
     display: block;
     position: relative;
