@@ -556,8 +556,8 @@ button {
   display: flex;
   align-items: flex-end;
   gap: clamp(16px, 3vw, 48px);
-  padding: 0 var(--gutter);
-  overflow: hidden;
+  padding: 0 var(--gutter) clamp(48px, 7vw, 96px);
+  overflow: visible;
 }
 
 .about-top .about-hero {
