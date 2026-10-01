@@ -391,6 +391,21 @@ const COPY = {
             featured: true,
             span: "full",
           },
+          {
+            type: "image",
+            src: "assets/work/distrito13/oro-jondo.jpg",
+            label: "Cartel · Oro Jondo · Sábado 22 Jul",
+          },
+          {
+            type: "video",
+            src: "assets/work/distrito13/clip-01.mp4",
+            label: "Clip · Distrito 13",
+          },
+          {
+            type: "video",
+            src: "assets/work/distrito13/videoaniversario2.mp4",
+            label: "Vídeo aniversario · Distrito 13",
+          },
         ],
         metrics: [
           { value: "2.707", label: "seguidores desde cero · 2 años", icon: "followers" },
@@ -900,6 +915,21 @@ const COPY = {
             label: "Instagram walkthrough · feed and brand voice",
             featured: true,
             span: "full",
+          },
+          {
+            type: "image",
+            src: "assets/work/distrito13/oro-jondo.jpg",
+            label: "Poster · Oro Jondo · Saturday 22 Jul",
+          },
+          {
+            type: "video",
+            src: "assets/work/distrito13/clip-01.mp4",
+            label: "Clip · Distrito 13",
+          },
+          {
+            type: "video",
+            src: "assets/work/distrito13/videoaniversario2.mp4",
+            label: "Anniversary video · Distrito 13",
           },
         ],
         metrics: [
