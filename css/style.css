@@ -584,15 +584,18 @@ button {
   display: block;
 }
 
-/* contact2.jpg — MID LEFT, +5° */
+/* contact2.jpg — LEFT COLUMN, +5° */
 .about-col-photo--left-mid {
   margin: 0;
   padding: 0;
   position: sticky;
-  top: 42vh;
+  top: clamp(72px, 10vh, 120px);
+  align-self: start;
   transform: rotate(5deg);
-  transform-origin: center center;
+  transform-origin: center top;
   filter: drop-shadow(0 12px 32px rgba(0,0,0,0.55));
+  /* stay in its own column, never bleed into text */
+  overflow: visible;
 }
 
 .about-col-photo--left-mid img {
@@ -601,20 +604,24 @@ button {
   display: block;
 }
 
-/* ── About editorial columns (text + left photo) ── */
+/* ── About editorial columns (left photo + editorial text) ── */
 .about-columns-wrap {
   display: grid;
-  grid-template-columns: minmax(140px, 18vw) 1fr;
-  gap: clamp(16px, 2.5vw, 40px);
+  grid-template-columns: clamp(160px, 20vw, 280px) 1fr;
+  gap: clamp(24px, 3vw, 48px);
   align-items: start;
   padding: clamp(40px, 5vw, 72px) var(--gutter) clamp(32px, 4vw, 56px);
-  max-width: 1440px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
+/* Two-column editorial text */
 .about-body {
   position: relative;
-  padding: 0 clamp(8px, 1.5vw, 20px);
+  padding: 0;
+  column-count: 2;
+  column-gap: clamp(24px, 3.5vw, 56px);
+  column-rule: none;
 }
 
 .about-doodles {
