@@ -1584,8 +1584,15 @@ main {
     height: 62vh;
   }
 
-  .nav a {
-    display: none;
+  .nav {
+    gap: 10px 12px;
+    flex-wrap: wrap;
+  }
+
+  .nav a,
+  .lang button {
+    display: inline;
+    font-size: 11px;
   }
 
   .about-body {
